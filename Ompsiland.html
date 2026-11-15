@@ -1,0 +1,3172 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<link href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Monomakh&display=swap" rel="stylesheet">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"
+  onload="renderMathInElement(document.body);"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Омпсиланда — Главная</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+    --bg: #080b18;
+    --panel: #11172a;
+    --cyan: #65e9ed;
+    --purple: #a78bfa;
+	--yellow: #ffff00;
+    --text: #e9efff;
+    --muted: #9caac4;
+	--scarlet:#ff2400;
+	--triadeblue:#00ffff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Montserrat', sans-serif;
+    overflow-x: hidden;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -2;
+    background:
+      radial-gradient(ellipse at 15% 20%, #183c58 0%, transparent 35%),
+      radial-gradient(ellipse at 85% 65%, #301b50 0%, transparent 35%),
+      #080b18;
+}
+
+.stars {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    overflow: hidden;
+    background-image:
+      radial-gradient(1px 1px at 15% 20%, #fff 99%, transparent),
+      radial-gradient(2px 2px at 70% 30%, #65e9ed 99%, transparent),
+      radial-gradient(1px 1px at 40% 80%, #fff 99%, transparent),
+      radial-gradient(2px 2px at 90% 70%, #a78bfa 99%, transparent);
+    background-size: 250px 250px;
+    animation: stars 45s linear infinite;
+}
+
+.stars::before,
+.stars::after {
+    content: "";
+    position: absolute;
+    inset: -100%;
+    pointer-events: none;
+}
+
+.stars::before {
+    opacity: .65;
+    background-image:
+      radial-gradient(1px 1px at 20% 25%, white 99%, transparent),
+      radial-gradient(2px 2px at 60% 55%, #65e9ed 99%, transparent),
+      radial-gradient(1px 1px at 80% 15%, white 99%, transparent);
+    background-size: 330px 330px;
+    animation: stars 75s linear infinite;
+}
+
+.stars::after {
+    opacity: .4;
+    background-image:
+      radial-gradient(2px 2px at 30% 70%, #a78bfa 99%, transparent),
+      radial-gradient(1px 1px at 75% 40%, white 99%, transparent);
+    background-size: 450px 450px;
+    animation: stars 110s linear infinite reverse;
+}
+
+@keyframes stars {
+    from { transform: translateY(0); }
+    to { transform: translateY(-250px); }
+}
+
+/* НАВИГАЦИЯ */
+
+header {
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    width: 100%;
+    padding: 20px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(8,11,24,.82);
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid #ffffff12;
+}
+
+.logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 30px;
+    color: var(--cyan);
+    letter-spacing: 3px;
+    text-decoration: none;
+}
+
+nav {
+    display: flex;
+    gap: 30px;
+}
+
+nav a {
+    color: var(--muted);
+    font-size: 12px;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: .3s;
+}
+
+nav a:hover,
+nav a.active {
+    color: var(--cyan);
+}
+
+nav a.solar {
+    color: var(--yellow);
+}
+
+.menu-button {
+    display: none;
+    background: none;
+    color: white;
+    border: none;
+    font-size: 25px;
+}
+
+/* ГЛАВНЫЙ ЭКРАН */
+
+.hero {
+    min-height: 100vh;
+    padding: 150px 8% 80px;
+    display: grid;
+    grid-template-columns: 1.1fr .9fr;
+    align-items: center;
+    gap: 50px;
+}
+
+.eyebrow {
+    color: var(--cyan);
+    letter-spacing: 5px;
+    font-size: 11px;
+    text-transform: uppercase;
+    margin-bottom: 25px;
+}
+
+h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(65px, 9vw, 125px);
+    font-weight: 500;
+    line-height: .9;
+    background: linear-gradient(120deg, #ffffff, #65e9ed, #a78bfa);
+    -webkit-background-clip: text;
+    color: transparent;
+    margin-bottom: 30px;
+}
+
+.hero p {
+    max-width: 500px;
+    color: var(--muted);
+    line-height: 1.9;
+    font-size: 14px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+    margin-top: 35px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: 15px 25px;
+    border: 1px solid var(--cyan);
+    color: var(--cyan);
+    background: transparent;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 11px;
+    transition: .3s;
+    cursor: pointer;
+}
+
+.ex-btn {
+    padding: 15px 25px;
+    border: 1px solid #ffff00;
+    color: #00ff00;
+    background: #ff000036;
+    text-decoration: 00ff00;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 11px;
+    transition: .3s;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background: var(--cyan);
+    color: #080b18;
+    box-shadow: 0 0 30px #65e9ed55;
+}
+
+.ex-btn:hover {
+    background: var(--yellow);
+    color: black;
+    box-shadow: 0 0 30px var(--purple);
+}
+
+.book-area {
+    display: flex;
+    justify-content: center;
+    perspective: 1000px;
+}
+
+.book {
+    position: relative;
+    width: 310px;
+    height: 430px;
+    border-radius: 8px 18px 18px 8px;
+	background:
+    linear-gradient(
+        rgba(8, 11, 24, 0.01),
+        rgba(8, 11, 24, 0.015)
+    ),
+    url("book-cover.png") center / cover no-repeat;
+    border: 1px solid #65e9ed88;
+    box-shadow:
+      0 0 40px #65e9ed22,
+      20px 25px 70px #000a;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: transform .7s;
+    animation: floating 5s ease-in-out infinite;
+}
+
+.book-symbol,
+.book h2,
+.book small {
+    position: relative;
+    z-index: 2;
+	transform: translateY(-50px);
+}
+
+.book {
+    transform: rotateY(0deg) rotateX(0deg) rotateZ(0deg);
+    transition: transform 0.6s ease;
+}
+
+.book.turn-1 {
+    transform: rotateY(25deg) rotateX(5deg) rotateZ(13deg);
+}
+
+.book.turn-2 {
+    transform: rotateY(25deg) rotateX(5deg) rotateZ(-13deg);
+}
+
+.book.turn-3 {
+    transform: rotateY(-25deg) rotateX(5deg) rotateZ(-13deg);
+}
+
+.book.turn-4 {
+    transform: rotateY(-25deg) rotateX(5deg) rotateZ(13deg);
+}
+
+@keyframes floating {
+    0%,100% { translate: 0 0; }
+    50% { translate: 0 -18px; }
+}
+
+.book::before {
+    content: "";
+    position: absolute;
+    inset: 12px;
+    border: 1px solid #65e9ed66;
+    border-radius: 4px 12px 12px 4px;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.book-symbol {
+    font-family: serif;
+    font-size: 100px;
+    color: #fff;
+    text-shadow: 0 0 16px #00ff00;
+}
+
+.book h2 {
+  font-family: "Monomakh", system-ui;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 36px;
+  letter-spacing: 0px;
+  margin-top: 5px;
+}
+
+.book small {
+    margin-top: 7px;
+    color: #00ff00;
+    letter-spacing: 1px;
+    font-size: 13px;
+}
+
+.book-glow {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: #65e9ed22;
+    filter: blur(50px);
+    z-index: -1;
+}
+
+/* ОБЩИЕ СЕКЦИИ */
+
+section {
+    padding: 110px 8%;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 65px;
+}
+
+.section-title span {
+    color: var(--cyan);
+    font-size: 10px;
+    letter-spacing: 5px;
+}
+
+.section-title h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 55px;
+    font-weight: 400;
+    margin-top: 15px;
+}
+
+.section-title p {
+    color: var(--muted);
+    font-size: 13px;
+    margin-top: 15px;
+}
+
+/* О МИРЕ */
+
+.about {
+    background: linear-gradient(90deg, #11172a88, #11172a22);
+    border-top: 1px solid #ffffff12;
+    border-bottom: 1px solid #ffffff12;
+}
+
+.about-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 55px;
+    align-items: center;
+}
+
+.about-image {
+    height: 550px;
+    border-radius: 5px;
+    background:
+      linear-gradient(0deg, #080b1812, transparent),
+      url('View.png')
+      center/cover;
+    border: 1px solid #65e9ed44;
+    box-shadow: 0 0 35px #65e9ed15;
+}
+
+.about-text h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 38px;
+    margin-bottom: 20px;
+}
+
+.about-text p {
+    color: var(--muted);
+    line-height: 2;
+    font-size: 13px;
+    margin-bottom: 20px;
+}
+
+/* КРИСТАЛЛЫ */
+
+.crystal-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+}
+
+.crystal-card {
+    background: linear-gradient(145deg, #17213a, #0c1020);
+    border: 1px solid #ffffff15;
+    padding: 30px;
+    text-align: center;
+    border-radius: 25px;
+    transition: .4s;
+    cursor: pointer;
+}
+
+.crystal-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--cyan);
+    box-shadow: 0 10px 35px #65e9ed22;
+}
+
+.crystal {
+    height: 140px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.crystal-card:hover img {
+    transform: scale(1.15) rotate(8deg);
+}
+
+.crystal-card h1 {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 100px;
+    margin: 20px 0 10px;
+    line-height: 1.8;
+}
+
+.crystal-card h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 29px;
+    margin: 20px 0 10px;
+}
+
+.crystal-card p {
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+.crystal-card button {
+    margin-top: 20px;
+    background: none;
+    border: none;
+    color: var(--cyan);
+    cursor: pointer;
+    letter-spacing: 2px;
+    font-size: 10px;
+    text-transform: uppercase;
+}
+
+/* ФИЗИКА */
+
+.laws {
+    background: #0d1222;
+}
+
+.law-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.law {
+    border: 1px solid #ffffff17;
+    padding: 35px;
+    background: linear-gradient(120deg, #16213a, #111426);
+    border-radius: 5px;
+    transition: .3s;
+}
+
+.law:hover {
+    border-color: var(--purple);
+    transform: translateY(-5px);
+}
+
+.law-number {
+    color: var(--purple);
+    font-size: 11px;
+    letter-spacing: 3px;
+}
+
+.law h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 30px;
+    margin: 18px 0;
+}
+
+.formula {
+    color: var(--cyan);
+    font-family: Georgia, serif;
+    font-size: 27px;
+    margin: 25px 0;
+    text-align: center;
+}
+
+.formulax {
+    color: var(--cyan);
+    font-family: Georgia, serif;
+    font-size: 27px;
+    margin: 25px 0;
+    text-align: center;
+}
+
+.law p {
+    color: var(--muted);
+    line-height: 1.8;
+    font-size: 13px;
+}
+
+/* КАРТА */
+
+.map-container {
+    position: relative;
+    min-height: 420px;
+    border: 1px solid #65e9ed55;
+    border-radius: 10px;
+    background:
+      radial-gradient(circle at 50% 50%, #283b60, #101426 70%);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.map-circle {
+    width: 300px;
+    height: 300px;
+    border: 1px solid #65e9ed66;
+    border-radius: 50%;
+    position: absolute;
+    box-shadow: 0 0 50px #65e9ed15, inset 0 0 50px #65e9ed15;
+}
+
+.map-circle:nth-child(2) {
+    width: 420px;
+    height: 420px;
+}
+
+.map-circle:nth-child(3) {
+    width: 540px;
+    height: 540px;
+}
+
+.map-center {
+    z-index: 2;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 35px;
+    color: var(--cyan);
+}
+
+.map-point {
+    position: absolute;
+    z-index: 3;
+    padding: 10px 15px;
+    border: 1px solid #65e9ed88;
+    background: #10182b;
+    color: white;
+    cursor: pointer;
+    font-size: 11px;
+    transition: .3s;
+}
+
+.map-point:hover {
+    background: var(--cyan);
+    color: #080b18;
+    box-shadow: 0 0 25px var(--cyan);
+}
+
+.point1 { top: 18%; left: 20%; }
+.point2 { top: 25%; right: 17%; }
+.point3 { bottom: 22%; left: 17%; }
+.point4 { bottom: 18%; right: 18%; }
+
+/* ФИНАЛЬНЫЙ БЛОК */
+
+.quote {
+    text-align: center;
+    padding: 130px 10%;
+    background: radial-gradient(ellipse, #25234b, transparent 70%);
+}
+
+.quote h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(35px, 5vw, 65px);
+    font-weight: 400;
+    line-height: 1.3;
+}
+
+.quote p {
+    color: var(--cyan);
+    letter-spacing: 4px;
+    font-size: 10px;
+    margin-top: 30px;
+}
+
+/* FOOTER */
+
+footer {
+    border-top: 1px solid #ffffff18;
+    padding: 40px 8%;
+    display: flex;
+    justify-content: space-between;
+    color: var(--muted);
+    font-size: 11px;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+footer a {
+    color: var(--cyan);
+    text-decoration: none;
+}
+
+/* МОДАЛЬНОЕ ОКНО */
+
+.modal {
+    position: fixed;
+    inset: 0;
+    z-index: 200;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: #000b;
+    backdrop-filter: blur(10px);
+}
+
+.modal.active {
+    display: flex;
+}
+
+.modal-content {
+    max-width: 700px;
+    width: 100%;
+    padding: 45px;
+    background: #111a30;
+    border: 1px solid var(--cyan);
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 0 60px #65e9ed22;
+    animation: appear .3s ease;
+}
+
+@keyframes appear {
+    from { transform: scale(.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+.modal-content h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.modal-content p {
+    color: var(--muted);
+    line-height: 1.8;
+    font-size: 13px;
+}
+
+.close {
+    margin-top: 25px;
+    padding: 12px 30px;
+    background: none;
+    color: var(--cyan);
+    border: 1px solid var(--cyan);
+    cursor: pointer;
+}
+
+/* ПАНЕЛЬ ИССЛЕДОВАТЕЛЯ */
+
+.research-panel {
+    position: fixed;
+    z-index: 90;
+    right: 25px;
+    bottom: 66px;
+    width: 245px;
+    padding: 18px;
+    background: rgba(12, 18, 38, .88);
+    border: 1px solid #65e9ed66;
+    border-radius: 8px;
+    backdrop-filter: blur(15px);
+    box-shadow: 0 0 30px #65e9ed18;
+    font-size: 10px;
+    transition: .3s;
+}
+
+.research-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--cyan);
+    letter-spacing: 2px;
+    font-size: 10px;
+    margin-bottom: 15px;
+}
+
+.research-toggle {
+    background: none;
+    border: none;
+    color: var(--cyan);
+    font-size: 17px;
+    cursor: pointer;
+}
+
+.research-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin: 11px 0;
+    color: var(--muted);
+}
+
+.research-value {
+    color: var(--text);
+    text-align: right;
+}
+
+.research-status {
+    color: var(--cyan);
+}
+
+.research-progress {
+    height: 4px;
+    margin-top: 8px;
+    background: #ffffff18;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.research-progress-bar {
+    width: 0%;
+    height: 100%;
+    background: linear-gradient(90deg, var(--cyan), var(--purple));
+    box-shadow: 0 0 10px var(--cyan);
+    transition: width .2s;
+}
+
+.research-panel.collapsed {
+    width: 190px;
+}
+
+.research-panel.collapsed .research-content {
+    display: none;
+}
+
+@media(max-width: 682px) {
+    .research-panel {
+        right: 10px;
+        bottom: 10px;
+        width: 190px;
+        padding: 12px;
+    }
+
+    .research-panel.collapsed {
+        width: 165px;
+    }
+}
+
+/* АДАПТИВНОСТЬ */
+
+@media(max-width: 1080px) {
+    nav {
+        display: none;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        padding: 25px;
+        background: #0c1122;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    nav.open { display: flex; }
+
+    .menu-button { display: block; }
+
+    .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .hero p { margin: auto; }
+    .hero-buttons { justify-content: center; }
+    .about-content { grid-template-columns: 1fr; }
+    .crystal-grid { grid-template-columns: 1fr; }
+	.law-grid { grid-template-columns: minmax(0, 1fr); }
+    .book { width: 250px; height: 350px; }
+}
+
+@media(max-width: 480px) {
+    section { padding: 75px 6%; }
+    .section-title h2 { font-size: 40px; }
+    .map-circle:nth-child(2) { width: 300px; height: 300px; }
+    .map-circle:nth-child(3) { width: 390px; height: 390px; }
+    .map-point { font-size: 9px; padding: 8px; }
+}
+
+
+/* ИНТЕРАКТИВНАЯ КАРТА */
+
+.interactive-map {
+    position: relative;
+}
+
+.map-frame {
+    position: relative;
+    width: min(100%, 850px);
+    margin: auto;
+    overflow: hidden;
+    border: 1px solid #65e9ed55;
+    border-radius: 8px;
+    box-shadow:
+        0 0 30px #65e9ed22,
+        0 20px 70px #0008;
+}
+
+.map-picture {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+/* НЕВИДИМЫЕ КНОПКИ НА КАРТЕ */
+
+.map-hotspot {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    width: 5%;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    border: 1px solid transparent;
+    background: transparent;
+    cursor: pointer;
+    z-index: 5;
+    transition: .25s;
+    padding: 0;
+}
+
+.map-hotspot:hover {
+    background: #65e9ed22;
+    border-color: #65e9edaa;
+    box-shadow:
+        0 0 12px #65e9ed,
+        0 0 30px #65e9ed88;
+    transform: translate(-50%, -50%) scale(1.2);
+}
+
+.map-hotspot:focus-visible {
+    outline: 2px solid white;
+    outline-offset: 3px;
+}
+
+.map-hint {
+    text-align: center;
+    color: #9caac4;
+    font-size: 11px;
+    letter-spacing: 1px;
+    margin-top: 25px;
+}
+
+.hint-dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #65e9ed;
+    box-shadow: 0 0 12px #65e9ed;
+    margin-right: 8px;
+}
+
+/* ОКНО СЕКТОРА */
+
+.sector-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 300;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background: #050714d9;
+    backdrop-filter: blur(12px);
+}
+
+.sector-modal.active {
+    display: flex;
+}
+
+.sector-window {
+    position: relative;
+    width: min(100%, 520px);
+    padding: 45px 35px;
+    text-align: center;
+    background:
+        radial-gradient(circle at 50% 0%, #263b60, transparent 65%),
+        #101629;
+    border: 1px solid #65e9ed88;
+    border-radius: 12px;
+    box-shadow:
+        0 0 60px #65e9ed22,
+        0 20px 80px #000b;
+    animation: sectorAppear .35s ease;
+}
+
+@keyframes sectorAppear {
+    from {
+        opacity: 0;
+        transform: translateY(25px) scale(.94);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.sector-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 125px;
+    height: 125px;
+    margin: 0 auto 25px;
+    border: 1px solid #65e9ed99;
+    border-radius: 50%;
+    color: #fff;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 65px;
+    text-shadow: 0 0 20px #65e9ed;
+    box-shadow:
+        0 0 30px #65e9ed33,
+        inset 0 0 25px #65e9ed22;
+}
+
+.sector-label {
+    color: #65e9ed;
+    font-size: 10px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+}
+
+.sector-window h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 39px;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+.sector-window p {
+    color: #b6c1d8;
+    font-size: 13px;
+    line-height: 1.9;
+}
+
+.sector-close {
+    margin-top: 30px;
+    padding: 13px 35px;
+    border: 1px solid #65e9ed;
+    color: #65e9ed;
+    background: transparent;
+    cursor: pointer;
+    letter-spacing: 2px;
+    transition: .3s;
+}
+
+.sector-close:hover {
+    background: #65e9ed;
+    color: #080b18;
+    box-shadow: 0 0 25px #65e9ed66;
+}
+
+@media(max-width: 600px) {
+    .sector-window {
+        padding: 35px 22px;
+    }
+
+    .sector-logo {
+        width: 100px;
+        height: 100px;
+        font-size: 52px;
+    }
+
+    .sector-window h2 {
+        font-size: 32px;
+    }
+
+    .map-hotspot {
+        width: 6%;
+    }
+}
+
+/* ЛОГОТИП СЕКТОРА В ФОРМАТЕ SVG */
+
+.sector-logo img {
+    width: 85%;
+    height: 85%;
+    object-fit: contain;
+    filter:
+        drop-shadow(0 0 8px #65e9ed)
+        drop-shadow(0 0 18px #65e9ed88);
+    animation: logoAppear .4s ease;
+}
+
+@keyframes logoAppear {
+    from {
+        opacity: 0;
+        transform: scale(.7);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.crystal-branches {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 45px;
+    position: relative;
+}
+
+/* Общая соединительная линия */
+.crystal-branches::before {
+    content: "";
+    position: absolute;
+    top: -23px;
+    left: 16.66%;
+    right: 16.66%;
+    height: 1px;
+    background: #65e9ed;
+    opacity: 0.7;
+}
+
+/* Отдельная ветвь */
+.crystal-branch {
+    position: relative;
+    padding: 18px;
+    background: rgba(101, 233, 237, 0.06);
+    border: 1px solid rgba(101, 233, 237, 0.3);
+    border-radius: 14px;
+    text-align: center;
+}
+
+/* Соединение с общей линией */
+.crystal-branch::before {
+    content: "";
+    position: absolute;
+    top: -23px;
+    left: 50%;
+    width: 1px;
+    height: 23px;
+    background: #65e9ed;
+}
+
+.crystal-branch img {
+    width: 100%;
+    max-width: 110px;
+    height: 90px;
+    object-fit: contain;
+    margin-bottom: 10px;
+}
+
+.crystal-branch h3 {
+    color: #65e9ed;
+    margin: 5px 0 10px;
+}
+
+.crystal-branch p {
+    font-size: 13px;
+    line-height: 1.5;
+    color: #c9d1e5;
+}
+
+@media (max-width: 650px) {
+    .crystal-branches {
+        grid-template-columns: 1fr;
+    }
+
+    .crystal-branches::before,
+    .crystal-branch::before {
+        display: none;
+    }
+}
+
+
+/* =====================================
+   МОБИЛЬНАЯ АДАПТАЦИЯ ОМПСИЛАНДЫ
+   ===================================== */
+
+/* Общие настройки */
+html {
+    width: 100%;
+    overflow-x: clip;
+}
+
+body {
+    width: 100%;
+    min-width: 320px;
+    overflow-x: clip;
+}
+
+img {
+    max-width: 100%;
+}
+
+/* Заголовок и меню */
+header {
+    padding: 14px 5%;
+    gap: 12px;
+}
+
+.logo {
+    font-size: clamp(18px, 4.5vw, 30px);
+    letter-spacing: clamp(1px, 0.5vw, 3px);
+}
+
+.menu-button {
+    flex-shrink: 0;
+    padding: 8px;
+}
+
+/* Главный экран */
+.hero {
+    min-height: 100svh;
+    padding: 120px 6% 65px;
+    gap: 40px;
+}
+
+.hero h1 {
+    font-size: clamp(44px, 10vw, 100px);
+    line-height: 1;
+    overflow-wrap: anywhere;
+}
+
+.eyebrow {
+    font-size: clamp(9px, 2.5vw, 11px);
+    letter-spacing: clamp(1px, 0.8vw, 5px);
+    line-height: 1.7;
+}
+
+.hero p {
+    font-size: clamp(12px, 3.2vw, 14px);
+}
+
+.hero-buttons {
+    gap: 10px;
+}
+
+.btn {
+    padding: 13px 18px;
+    max-width: 100%;
+}
+
+/* Книга */
+.book {
+    width: min(72vw, 250px);
+    height: auto;
+    aspect-ratio: 310 / 430;
+}
+
+.book-symbol {
+    font-size: clamp(65px, 20vw, 105px);
+}
+
+.book h2 {
+    font-size: clamp(19px, 5vw, 35px);
+    letter-spacing: clamp(1px, 0vw, 4px);
+    text-align: center;
+}
+
+.book small {
+    font-size: clamp(7px, 2vw, 9px);
+    letter-spacing: clamp(1px, 0.8vw, 4px);
+    text-align: center;
+}
+
+/* Все секции */
+section {
+    padding: clamp(60px, 10vw, 110px) 6%;
+}
+
+.section-title {
+    margin-bottom: 40px;
+}
+
+.section-title h2 {
+    font-size: clamp(32px, 8vw, 55px);
+    line-height: 1.1;
+    overflow-wrap: break-word;
+}
+
+.section-title p {
+    font-size: clamp(11px, 3vw, 13px);
+    line-height: 1.7;
+}
+
+/* О мире */
+.about-content {
+    gap: 30px;
+}
+
+.about-image {
+    width: 100%;
+    height: clamp(210px, 60vw, 390px);
+}
+
+.about-text h3 {
+    font-size: clamp(27px, 7vw, 38px);
+}
+
+.about-text p {
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+/* Кристаллы */
+.crystal-card {
+    padding: clamp(20px, 6vw, 30px);
+}
+
+.crystal-card h3 {
+    font-size: clamp(25px, 7vw, 29px);
+}
+
+/* Законы */
+
+.law {
+    padding: clamp(20px, 6vw, 35px);
+}
+
+.law h3 {
+    font-size: clamp(25px, 7vw, 30px);
+}
+
+.formula {
+    font-size: clamp(19px, 5.5vw, 27px);
+    overflow-wrap: anywhere;
+}
+
+.formulax {
+    font-size: clamp(19px, 5.5vw, 27px);
+    overflow-wrap: anywhere;
+}
+
+/* Карта */
+.map-container {
+    min-height: clamp(300px, 90vw, 420px);
+    width: 100%;
+}
+
+.map-center {
+    font-size: clamp(23px, 7vw, 35px);
+}
+
+.map-point {
+    max-width: 35%;
+    font-size: clamp(8px, 2.5vw, 11px);
+    padding: 7px 9px;
+}
+
+/* Изображение интерактивной карты */
+.map-frame {
+    width: 50%;
+}
+
+.map-picture {
+    width: 100%;
+    height: auto;
+}
+
+/* Финальный блок */
+.quote {
+    padding: 85px 6%;
+}
+
+.quote h2 {
+    font-size: clamp(30px, 8vw, 65px);
+}
+
+.quote p {
+    line-height: 1.8;
+    letter-spacing: 2px;
+}
+
+/* Всплывающие окна */
+.modal,
+.sector-modal {
+    padding: 12px;
+    overflow-y: auto;
+    align-items: flex-start;
+}
+
+.modal-content,
+.sector-window {
+    width: 100%;
+    max-width: 520px;
+    max-height: calc(100vh - 24px);
+    max-height: calc(100dvh - 24px);
+    overflow-y: auto;
+    margin: auto;
+    padding: clamp(20px, 6vw, 35px);
+}
+
+.modal-content h2,
+.sector-window h2 {
+    font-size: clamp(27px, 7vw, 36px);
+}
+
+.modal-content p,
+.sector-window p {
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+/* Ветви Квантия */
+.crystal-branches {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px;
+}
+
+.crystal-branch {
+    min-width: 0;
+    padding: 10px;
+    overflow-wrap: anywhere;
+}
+
+.crystal-branch img {
+    max-width: 100%;
+    height: 75px;
+}
+
+.crystal-branch h3 {
+    font-size: 14px;
+}
+
+.crystal-branch p {
+    font-size: 11px;
+    line-height: 1.5;
+}
+
+/* Узкие телефоны */
+@media (max-width: 600px) {
+
+    .crystal-branches {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .crystal-branches::before,
+    .crystal-branch::before {
+        display: none;
+    }
+
+    .crystal-branch {
+        padding: 16px;
+    }
+
+    .crystal-branch img {
+        height: 90px;
+    }
+
+    .crystal-branch h3 {
+        font-size: 17px;
+    }
+
+    .crystal-branch p {
+        font-size: 12px;
+    }
+
+    .sector-logo {
+        width: 90px;
+        height: 90px;
+        font-size: 45px;
+    }
+}
+
+/* Очень узкие экраны */
+@media (max-width: 360px) {
+
+    .hero {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+
+    .logo {
+        font-size: 17px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .hero-buttons .btn {
+        text-align: center;
+    }
+
+    .map-point {
+        padding: 6px;
+    }
+}
+
+/* АДАПТАЦИЯ БЛОКОВ ФИЗИКИ */
+@media (max-width: 1300px) {
+
+	.map-frame {
+		width: 75%;
+	}
+
+    .law-grid {
+        grid-template-columns: minmax(0, 1fr);
+        width: 100%;
+        gap: 15px;
+    }
+
+    .law {
+        width: 100%;
+        min-width: 0;
+        padding: clamp(18px, 5vw, 30px);
+        overflow: hidden;
+    }
+
+    .law h3 {
+        font-size: clamp(23px, 6vw, 30px);
+        overflow-wrap: anywhere;
+    }
+
+    .law p {
+        font-size: clamp(12px, 3vw, 14px);
+        overflow-wrap: anywhere;
+    }
+
+    .law-number {
+        font-size: 10px;
+    }
+
+    .formula {
+        max-width: 100%;
+        font-size: clamp(19px, 5.25vw, 27px);
+        overflow-wrap: anywhere;
+        word-break: break-word;
+        white-space: normal;
+    }
+	
+	.formulax {
+        max-width: 100%;
+        font-size: clamp(16px, 3.75vw, 27px);
+        overflow-wrap: anywhere;
+        word-break: break-word;
+        white-space: normal;
+    }
+	
+	.hero {
+		grid-template-columns: minmax(0, 1fr);
+		width: 100%;
+		gap: 40px;
+		padding-left: 6%;
+		padding-right: 6%;
+		box-sizing: border-box;
+	}
+
+	.hero > * {
+		min-width: 0;
+		max-width: 100%;
+	}
+
+	.book-area {
+		width: 100%;
+		min-width: 0;
+	}
+
+	.book {
+		width: min(250px, 85vw);
+		height: auto;
+		min-height: 320px;
+		box-sizing: border-box;
+	}
+
+	.hero p {
+		max-width: 100%;
+		overflow-wrap: anywhere;
+	}
+}
+
+@media (max-width: 1000px) {
+
+	.map-frame {
+		width: 100%;
+	}
+}
+
+/* ==============================
+   ПАНЕЛЬ ИССЛЕДОВАТЕЛЯ
+============================== */
+
+.research-panel {
+    position: fixed;
+    z-index: 90;
+    right: 25px;
+    bottom: 66px;
+    width: 265px;
+    max-height: 80vh;
+    overflow-y: auto;
+
+    padding: 18px;
+
+    background: rgba(12, 18, 38, .91);
+    border: 1px solid #65e9ed66;
+    border-radius: 8px;
+
+    backdrop-filter: blur(15px);
+    box-shadow: 0 0 30px #65e9ed18;
+
+    color: var(--text);
+    font-size: 10px;
+
+    transition: width .3s, padding .3s;
+}
+
+.research-panel::-webkit-scrollbar {
+    width: 4px;
+}
+
+.research-panel::-webkit-scrollbar-thumb {
+    background: #65e9ed66;
+    border-radius: 5px;
+}
+
+.research-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    color: var(--cyan);
+    letter-spacing: 1.5px;
+    font-size: 10px;
+    font-weight: bold;
+
+    padding-bottom: 13px;
+    border-bottom: 1px solid #65e9ed33;
+}
+
+.research-symbol {
+    font-family: serif;
+    font-size: 19px;
+    margin-right: 7px;
+}
+
+.research-toggle {
+    background: none;
+    border: none;
+    color: var(--cyan);
+    font-size: 19px;
+    cursor: pointer;
+}
+
+.research-block {
+    padding: 13px 0;
+    border-bottom: 1px solid #ffffff12;
+}
+
+.research-label {
+    color: var(--muted);
+    font-size: 9px;
+    letter-spacing: 1.2px;
+    margin-bottom: 7px;
+}
+
+.research-value {
+    color: var(--text);
+    font-size: 13px;
+    letter-spacing: 1px;
+}
+
+.research-subtitle {
+    color: #8291ad;
+    font-size: 9px;
+    margin-top: 5px;
+}
+
+.research-clock {
+    color: var(--cyan);
+    font-family: monospace;
+    font-size: 23px;
+    letter-spacing: 2px;
+}
+
+.research-activity {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.research-activity > span:first-child {
+    color: var(--cyan);
+    font-family: monospace;
+    font-size: 20px;
+}
+
+.research-status {
+    color: var(--purple);
+    font-size: 9px;
+    letter-spacing: 1px;
+}
+
+.research-progress {
+    height: 4px;
+    margin-top: 9px;
+    background: #ffffff18;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.research-progress-bar {
+    width: 68%;
+    height: 100%;
+    background: linear-gradient(90deg, var(--cyan), var(--purple));
+    box-shadow: 0 0 10px var(--cyan);
+    transition: width .8s;
+}
+
+.research-anomaly {
+    color: #d6baff;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+/* ==============================
+   КВАНТОВЫЙ РАДАР
+============================== */
+
+.radar {
+    position: relative;
+    width: 145px;
+    height: 145px;
+    margin: 12px auto;
+
+    border-radius: 50%;
+    overflow: hidden;
+
+    background: radial-gradient(circle, #102a39, #07121e 75%);
+    border: 1px solid #65e9ed77;
+
+    box-shadow: 0 0 18px #65e9ed22;
+}
+
+.radar-circle {
+    position: absolute;
+    border: 1px solid #65e9ed44;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.radar-circle-1 {
+    width: 35%;
+    height: 35%;
+}
+
+.radar-circle-2 {
+    width: 65%;
+    height: 65%;
+}
+
+.radar-circle-3 {
+    width: 95%;
+    height: 95%;
+}
+
+.radar-cross {
+    position: absolute;
+    background: #65e9ed33;
+}
+
+.radar-cross-horizontal {
+    width: 100%;
+    height: 1px;
+    top: 50%;
+}
+
+.radar-cross-vertical {
+    height: 100%;
+    width: 1px;
+    left: 50%;
+}
+
+.radar-sweep {
+    position: absolute;
+    width: 50%;
+    height: 50%;
+    top: 0;
+    left: 50%;
+    transform-origin: bottom left;
+
+    background: linear-gradient(
+        45deg,
+        #65e9ed55,
+        transparent 70%
+    );
+
+    animation: radarSweep 4s linear infinite;
+}
+
+@keyframes radarSweep {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.radar-dot {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--cyan);
+    box-shadow: 0 0 9px var(--cyan);
+    animation: radarPulse 2s infinite alternate;
+}
+
+.radar-dot-1 {
+    top: 30%;
+    left: 65%;
+}
+
+.radar-dot-2 {
+    top: 65%;
+    left: 30%;
+    animation-delay: .6s;
+}
+
+.radar-dot-3 {
+    top: 22%;
+    left: 35%;
+    animation-delay: 1.2s;
+}
+
+.radar-center {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    border-radius: 50%;
+    box-shadow: 0 0 10px white;
+}
+
+@keyframes radarPulse {
+    from { opacity: .3; }
+    to { opacity: 1; }
+}
+
+.radar-status {
+    color: var(--cyan);
+    text-align: center;
+    font-size: 9px;
+    letter-spacing: 1px;
+}
+
+/* ==============================
+   ЖУРНАЛ НАБЛЮДЕНИЙ
+============================== */
+
+.research-log {
+    max-height: 105px;
+    overflow-y: auto;
+    margin: 8px 0;
+}
+
+.research-log-entry {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    padding: 7px 0;
+    border-bottom: 1px solid #ffffff10;
+    color: var(--text);
+    font-size: 9px;
+}
+
+.research-log-entry span:first-child {
+    color: var(--cyan);
+    font-family: monospace;
+}
+
+.research-log-button {
+    width: 100%;
+    padding: 8px;
+
+    color: var(--cyan);
+    background: #65e9ed0d;
+    border: 1px solid #65e9ed55;
+    border-radius: 4px;
+
+    font-size: 9px;
+    letter-spacing: 1px;
+    cursor: pointer;
+
+    transition: .2s;
+}
+
+.research-log-button:hover {
+    background: #65e9ed22;
+    box-shadow: 0 0 12px #65e9ed22;
+}
+
+/* ==============================
+   СВОРАЧИВАНИЕ
+============================== */
+
+.research-panel.collapsed {
+    width: 225px;
+    max-height: none;
+    overflow: hidden;
+}
+
+.research-panel.collapsed .research-content {
+    display: none;
+}
+
+/* ==============================
+   МОБИЛЬНАЯ ВЕРСИЯ
+============================== */
+
+@media(max-width: 682px) {
+    .research-panel {
+        right: 10px;
+        bottom: 10px;
+        width: 230px;
+        max-height: 75vh;
+        padding: 12px;
+    }
+
+    .research-panel.collapsed {
+        width: 150px;
+		height: 48px
+    }
+
+    .radar {
+        width: 115px;
+        height: 115px;
+    }
+}
+
+.faq-container{
+max-width:900px;
+margin:auto;
+display:flex;
+flex-direction:column;
+gap:16px;
+}
+
+.faq-item{
+background:linear-gradient(145deg,#17213a,#0c1020);
+border:1px solid #ffffff18;
+border-radius:8px;
+overflow:hidden;
+transition:.3s;
+}
+
+.faq-item:hover{
+border-color:#65e9ed66;
+}
+
+.faq-question{
+padding:22px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+cursor:pointer;
+font-weight:500;
+}
+
+.faq-question span:last-child{
+color:var(--triadeblue);
+font-size:22px;
+transition:.3s;
+}
+
+.faq-answer{
+max-height:0;
+overflow:hidden;
+transition:max-height .35s ease;
+padding:0 3px;
+color:var(--muted);
+line-height:1.8;
+font-size:16px;
+}
+
+.faq-item.active .faq-answer{
+padding:0 3px 3px;
+max-height:10000px;
+}
+
+.faq-item.active .faq-question span:last-child{
+transform:rotate(45deg);
+}
+
+.spoiler-warning{
+max-width:900px;
+margin:0 auto 30px;
+padding:22px;
+border-left:3px solid var(--triadeblue);
+background:#00ffff10;
+border-radius:6px;
+}
+
+.spoiler-warning h3{
+margin-bottom:10px;
+color:#00ffff;
+}
+
+#spoilerSection{
+display:none;
+}
+
+.show-spoilers{
+margin-top:15px;
+padding:12px 24px;
+background:none;
+border:1px solid var(--triadeblue);
+color:var(--triadeblue);
+cursor:pointer;
+border-radius:30px;
+transition:.3s;
+}
+
+.show-spoilers:hover{
+background:#00ffff22;
+}
+
+</style>
+<link rel="icon" href="Omega.png">
+</head>
+
+<body>
+
+<div class="stars"></div>
+
+<aside class="research-panel" id="researchPanel">
+
+    <div class="research-heading">
+        <div>
+            <span class="research-symbol">Ω</span>
+            <span>ИССЛЕДОВАТЕЛЬ ОМПСИЛАНДЫ</span>
+        </div>
+        <button class="research-toggle"
+                onclick="toggleResearchPanel()"
+                aria-label="Свернуть панель">✕</button>
+    </div>
+
+    <div class="research-content">
+
+        <!-- Местное время -->
+        <div class="research-block">
+            <div class="research-label">МЕСТНОЕ ВРЕМЯ</div>
+            <div class="research-clock" id="researchClock">--:--:--</div>
+            <div class="research-subtitle" id="researchDate">--</div>
+        </div>
+
+        <!-- Координаты -->
+        <div class="research-block">
+            <div class="research-label">КООРДИНАТЫ НАБЛЮДЕНИЯ</div>
+            <div class="research-value" id="researchCoordinates">Ω-07 / QN-12</div>
+            <div class="research-subtitle" id="researchSector">Центральный сектор</div>
+        </div>
+
+        <!-- Квантовая активность -->
+        <div class="research-block">
+            <div class="research-label">УРОВЕНЬ КВАНТОВОЙ АКТИВНОСТИ</div>
+            <div class="research-activity">
+                <span id="researchActivity">68%</span>
+                <span class="research-status" id="researchActivityStatus">ПОВЫШЕННАЯ</span>
+            </div>
+            <div class="research-progress">
+                <div class="research-progress-bar" id="researchProgress"></div>
+            </div>
+        </div>
+
+        <!-- Аномалия дня -->
+        <div class="research-block">
+            <div class="research-label">АНОМАЛИЯ ДНЯ</div>
+            <div class="research-anomaly" id="researchAnomaly">
+                Неизвестный сигнал
+            </div>
+            <div class="research-subtitle" id="researchAnomalyCode">
+                Класс Ω-0
+            </div>
+        </div>
+
+        <!-- Квантовый радар -->
+        <div class="research-block">
+            <div class="research-label">КВАНТОВЫЙ РАДАР</div>
+
+            <div class="radar">
+                <div class="radar-circle radar-circle-1"></div>
+                <div class="radar-circle radar-circle-2"></div>
+                <div class="radar-circle radar-circle-3"></div>
+                <div class="radar-cross radar-cross-horizontal"></div>
+                <div class="radar-cross radar-cross-vertical"></div>
+                <div class="radar-sweep"></div>
+                <div class="radar-dot radar-dot-1"></div>
+                <div class="radar-dot radar-dot-2"></div>
+                <div class="radar-dot radar-dot-3"></div>
+                <div class="radar-center"></div>
+            </div>
+
+            <div class="radar-status" id="radarStatus">
+                ПОИСК СИГНАЛОВ...
+            </div>
+        </div>
+
+        <!-- Журнал наблюдений -->
+        <div class="research-block">
+            <div class="research-label">ЖУРНАЛ НАБЛЮДЕНИЙ</div>
+
+            <div class="research-log" id="researchLog">
+                <div class="research-log-entry">
+                    <span>СИСТЕМА</span>
+                    <span>Наблюдение начато</span>
+                </div>
+            </div>
+
+            <button class="research-log-button" onclick="addResearchLog()">
+                + ЗАПИСАТЬ НАБЛЮДЕНИЕ
+            </button>
+        </div>
+
+    </div>
+</aside>
+
+<header>
+    <a class="logo" href="#">ΩΜΨΙΛΆΝΔΑ</a>
+
+    <nav id="navigation">
+        <a href="#about">О мире</a>
+        <a href="#elements">Элементы</a>
+        <a href="#laws">Физика</a>
+        <a href="#map">Карта</a>
+		<a href="book.html" class="active">Книга</a>
+		<a href="FAQ.html" class="active">FAQ</a>
+		<a href="tailcoat.html" class="solar">Солнечный ФРАК</a>
+    </nav>
+
+    <button class="menu-button" onclick="toggleMenu()">Ξ</button>
+</header>
+
+<!-- ГЛАВНЫЙ ЭКРАН -->
+
+<main class="hero">
+
+  <div>
+    <div class="eyebrow">Welcome beyond your ordinary 3D-space:</div>
+
+    <h1 style="font-family: 'Times New Roman', Times, serif;">Ѡмѱіланда</h1>
+
+    <p>
+      Вольфрамов Роман Николаевич попадает в Омпсиланду —
+      загадочный мир, где наука переплетается с фантазией,
+      а физические законы соседствуют с чудесами. Таинственные
+      сектора, древние Архитекторы, семиструнная лира и Триадные
+      кристаллы скрывают историю этого удивительного пространства.
+      Главному герою предстоит узнать, зачем он оказался здесь, и
+      где проходит граница между реальностью и Омпсиландой.
+    </p>
+
+    <div class="hero-buttons">
+      <a href="#about" class="btn">Исследовать мир</a>
+      <a href="book.html" class="ex-btn">Читать книгу!</a>
+	  <a href="#elements" class="btn">Открыть тайны</a>
+    </div>
+  </div>
+
+
+    <div class="book-area">
+        <div class="book">
+            <div class="book-glow"></div>
+            <div class="book-symbol">Ω</div>
+            <h2>ѼМѰІЛАНДА</h2>
+        </div>
+    </div>
+
+</main>
+
+<!-- О МИРЕ -->
+
+<section class="about" id="about">
+
+	<div class="section-title">
+		<span>01 — ПРОСТРАНСТВО</span>
+		<h2>Что такое Омпсиланда?</h2>
+		<p>Мир, состоящий из восьми ячеек правильного четырёхмерного гиперкуба.</p>
+	</div>
+
+	<div class="about-content">
+
+		<div class="about-image"></div>
+
+		<div class="about-text">
+			<h3>Манназ-ячейка</h3>
+
+			<p>
+				Центральная ячейка омпсиландового тессеракта (обозначаемая рунической буквой манназ "ᛗ") представляет собой 18-секторное королевство, где в качестве обозначений принят греческий алфавит.
+			</p>
+
+			<p>
+				Здесь Вольфрамов Роман Николаевич впервые познакомился с четвёртым измерением, избавил Омпсиланду от смертельной напасти и узнал тайну её происхождения. Однако в том путешествии он не побывал в соседних ячейках, что не смог бы себе простить.
+			</p>
+
+			<p>
+				Но, вернувшись во владения Тессераты вновь, что-то пошло не так, как он подумал. Может быть, это и есть соседняя ячейка? Продолжение следует...
+			</p>
+
+			<a href="View.png" class="btn">Рассмотреть поближе</a>
+		</div>
+
+	</div>
+
+</section>
+
+<!-- ЭЛЕМЕНТЫ -->
+
+<section id="elements">
+
+    <div class="section-title">
+        <span>02 — ЭЛЕМЕНТЫ</span>
+        <h2>Уникальные элементы</h2>
+        <p>Стилизованный под реальность восьмой период химических элементов — и у каждого из них свои особенности и возможности.
+           (Внимание! Они являются вымышленными!)
+        </p>
+    </div>
+
+    <div class="crystal-grid">
+
+<div class="crystal-card">
+            <div class="crystal">
+                <h1 style="font-family: 'Times New Roman', Times, serif;">Bc</h1>
+            </div>
+            <h3>Бря́нций</h3>
+            <p>
+                Брянций (хим. символ — Bc, от лат. <i>Bryancium</i>) — это химический элемент 1-й группы восьмого периода периодической системы химических элементов Д. И. Менделеева, с атомным номером 119.
+            </p>
+            <button onclick="showCrystal('Брянций',
+            'Брянций (119) — металл аквамаринового цвета, схожий по своим свойствам с калием. Назван в честь русского города.')">
+                Исследовать →
+            </button>
+        </div>
+
+<div class="crystal-card">
+            <div class="crystal">
+                <h1 style="font-family: 'Times New Roman', Times, serif;">Sy</h1>
+            </div>
+            <h3>Синалло́н</h3>
+            <p>
+                Синаллон (хим. символ — Sy, от лат. <i>Synallon</i>) — это химический элемент 2-й группы восьмого периода периодической системы химических элементов Д. И. Менделеева, с атомным номером 120.
+            </p>
+            <button onclick="showCrystal('Синаллон',
+            'Синаллон (120) — экзотический металл с разноцветно-неоновым отливом, имеющий удивительные электромагнитные свойства, которых нет ни у одного из элементов. Назван от греч. слов σύνολο и άλλα, их сочетание дословно означает: «набор иных»')">
+                Исследовать →
+            </button>
+        </div>
+
+<div class="crystal-card">
+            <div class="crystal">
+                <h1 style="font-family: 'Times New Roman', Times, serif;">Cx</h1>
+            </div>
+            <h3>Контрокси́дий</h3>
+            <p>
+                Контроксидий (хим. символ — Cx, от лат. <i>Controxygenium</i>) — это химический элемент 3-й группы восьмого периода периодической системы химических элементов Д. И. Менделеева, с атомными номерами 121-123.
+            </p>
+            <button onclick="showCrystal('Контроксидий',
+            'Контрокси́дий (121-123) — семейство переходных элементов серебристо-снежного цвета. Контроксидий начинает левитировать при подаче определённого количества электрического тока, то есть, становится легче воздуха. Назван в честь сочетания латинских слов contra и oxygenium, что означает: «противокислородный», что логично. Элементы с зарядами ядер со 121 по 123 названы этим именем из-за того, что имеют почти одинаковые свойства, но левитируют с разной силой при одинаковом токе.')">
+                Исследовать →
+            </button>
+        </div>
+
+        <div class="crystal-card">
+            <div class="crystal">
+                <h1 style="font-family: 'Times New Roman', Times, serif;">Rm</h1>
+            </div>
+            <h3>Рифмисто́ргий</h3>
+            <p>
+                Рифмисторгий (хим. символ — Rm, от лат. <i>Rythmistorgium</i> — это химический элемент 4-й группы восьмого периода периодической системы химических элементов Д. И. Менделеева, с атомными номерами 124-129.
+            </p>
+            <button onclick="showCrystal('Рифмисторгий',
+            'Рифмисторгий (124-129) — семейство переходных элементов, прозрачных, как стекло. При расположении возле биологического тела приостанавливает все его процессы, действуя подобно криогенной заморозке, однако при комнатной температуре. В таком замедлении окружающая среда почти не воздействует на тело, и оно практически не испытывает естественный износ. Название образовано греческими словами ρυθμιστέ σε αργή, что означает: «установлен на медленный».')">
+                Исследовать →
+            </button>
+        </div>
+
+<div class="crystal-card">
+            <div class="crystal">
+                <h1 style="font-family: 'Times New Roman', Times, serif;">Mp</h1>
+            </div>
+            <h3>Метаплазма́дий</h3>
+            <p>
+                Метаплазмадий (хим. символ — Mp, от лат. <i>Metaplasmadium</i>) — это химический элемент 5-й группы восьмого периода периодической системы химических элементов Д. И. Менделеева, с атомными номерами 130-131.
+            </p>
+            <button onclick="showCrystal('Метаплазмадий',
+            'Метаплазмадий — семейство переходных элементов, имеющих газообразное агрегатное состояние. Имеет свойство следовать за живыми существами и окружать их при движении и перемещении. Аналогично, назван от греческих слов μετά и πλάσμα. Их соответственное значение: «следовать» и «существо».')">
+                Исследовать →
+            </button>
+        </div>
+
+<div class="crystal-card">
+            <div class="crystal">
+                <h1 style="font-family: 'Times New Roman', Times, serif;">Gs</h1>
+            </div>
+            <h3>Грависпа́тий</h3>
+            <p>
+                Грависпатий (хим. символ — Gs, от лат. <i>Gravispatium</i>) — это химический элемент 6-й группы восьмого периода периодической системы химических элементов Д. И. Менделеева, с атомными номерами 132-134.
+            </p>
+            <button onclick="showCrystal('Грависпатий',
+            'Грависпатий — семейство неметаллов чёрного цвета. При подаче электрического тока может изменять потенциальную энергию рядом находящихся объектов. Происхождение названия от словосочетания gravitates spatium, что переводится с латинского как «гравитационное пространство».')">
+                Исследовать →
+            </button>
+        </div>
+
+        <div class="crystal-card">
+            <div class="crystal">
+                <h1 style="font-family: 'Times New Roman', Times, serif;">Qn</h1>
+            </div>
+            <h3>Ква́нтий</h3>
+            <p>
+                Квантий (хим. символ — Qn, от лат. <i>Quantium</i>) — это химический элемент 7-й группы восьмого периода периодической системы химических элементов Д. И. Менделеева, с атомным номером 135.
+            </p>
+            <button onclick="showCrystal('Квантий',
+            'Квантий — неметалл, дополнительно обозначающийся греческой буквой коппа «Ϙ». В чистом виде является белым крахмалистым порошком. Предположительно, имеет невероятную электроотрицательность, гораздо выше, чем у фтора, а также множество различных соединений, например, три из них: ци́рий, уи́рий и ли́рий:',
+			'quantium')">
+                Исследовать →
+            </button>
+        </div>
+
+        <div class="crystal-card">
+            <div class="crystal">
+                <h1 style="font-family: 'Times New Roman', Times, serif;">Un</h1>
+            </div>
+            <h3>Ультранукло́н</h3>
+            <p>
+                Ультрануклон (хим. символ — Un, от лат. <i>Ultranuclon</i>) — это химический элемент 8-й группы восьмого периода периодической системы химических элементов Д. И. Менделеева, с атомным номером 136.
+            </p>
+            <button onclick="showCrystal('Ультрануклон',
+            'Ультрануклон — бесцветный благородный газ. Он может отдавать электроны со своего внешнего энергетического уровня и создавать ещё один дополнительный уровень для принимаемых электронов, поэтому может взаимодействовать с абсолютно любыми элементами, даже с другими благородными газами.')">
+                Исследовать →
+            </button>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ФИЗИКА -->
+
+<section class="laws" id="laws">
+
+    <div class="section-title">
+        <span>03 — НАУКА</span>
+        <h2>Физика Омпсиланды</h2>
+        <p>Законы, определяющие устройство этой Вселенной. (Внимание! Они являются вымышленными!)</p>
+    </div>
+
+    <div class="law-grid">
+
+        <div class="law">
+            <div class="law-number">LAW № 01</div>
+            <h3>Триадий</h3>
+			
+			<div class="formulax"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>L</mi><mi>i</mi><mi>Q</mi><mi>n</mi><mo>+</mo><mi>N</mi><mi>d</mi><mi>Q</mi><msub><mi>n</mi><mn>3</mn></msub><mo>+</mo><mi>U</mi><mi>Q</mi><msub><mi>n</mi><mn>4</mn></msub><mo>=</mo><mi>L</mi><mi>i</mi><mi>N</mi><mi>d</mi><mi>U</mi><mi>Q</mi><msub><mi>n</mi><mn>8</mn></msub></mrow><annotation encoding="application/x-tex">LiQn + NdQn_{3} + UQn_{4} = LiNdUQn_{8}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height: 0.8778em; vertical-align: -0.1944em;"></span><span class="mord mathnormal">L</span><span class="mord mathnormal">i</span><span class="mord mathnormal">Q</span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right: 0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right: 0.2222em;"></span></span><span class="base"><span class="strut" style="height: 0.8889em; vertical-align: -0.1944em;"></span><span class="mord mathnormal" style="margin-right: 0.109em;">N</span><span class="mord mathnormal">d</span><span class="mord mathnormal">Q</span><span class="mord"><span class="mord mathnormal">n</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height: 0.3011em;"><span class="" style="top: -2.55em; margin-left: 0em; margin-right: 0.05em;"><span class="pstrut" style="height: 2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">3</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height: 0.15em;"><span class=""></span></span></span></span></span></span><span class="mspace" style="margin-right: 0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right: 0.2222em;"></span></span><span class="base"><span class="strut" style="height: 0.8778em; vertical-align: -0.1944em;"></span><span class="mord mathnormal" style="margin-right: 0.109em;">U</span><span class="mord mathnormal">Q</span><span class="mord"><span class="mord mathnormal">n</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height: 0.3011em;"><span class="" style="top: -2.55em; margin-left: 0em; margin-right: 0.05em;"><span class="pstrut" style="height: 2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">4</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height: 0.15em;"><span class=""></span></span></span></span></span></span><span class="mspace" style="margin-right: 0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right: 0.2778em;"></span></span><span class="base"><span class="strut" style="height: 0.8889em; vertical-align: -0.1944em;"></span><span class="mord mathnormal">L</span><span class="mord mathnormal">i</span><span class="mord mathnormal" style="margin-right: 0.109em;">N</span><span class="mord mathnormal">d</span><span class="mord mathnormal" style="margin-right: 0.109em;">U</span><span class="mord mathnormal">Q</span><span class="mord"><span class="mord mathnormal">n</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height: 0.3011em;"><span class="" style="top: -2.55em; margin-left: 0em; margin-right: 0.05em;"><span class="pstrut" style="height: 2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">8</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height: 0.15em;"><span class=""></span></span></span></span></span></span></span></span></span></span></div>
+
+            <p>
+                Сумма Цирия (квантита лития), Уирия (квантита неодима) и Лирия (квантита урана) является сверхмощным кристаллом под именем "Триадий", из которого состоит Квантовая Лира.
+            </p>
+        </div>
+
+        <div class="law">
+            <div class="law-number">LAW № 02</div>
+            <h3>Энергия квантовой телепортации</h3>
+
+            <article class="prose lg:prose-xl prose-stone" style="margin: 1em;">
+			<div class="formula"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>ε</mi><mo>=</mo><mfrac><mrow><mtext>Ϡ</mtext><mo>⋅</mo><mi>m</mi><mo>⋅</mo><mi>r</mi></mrow><mrow><mtext>cos&nbsp;</mtext><mi>α</mi></mrow></mfrac></mrow><annotation encoding="application/x-tex">\varepsilon=\frac{Ϡ\cdot m\cdot r}{\text{cos }\alpha}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height: 0.4306em;"></span><span class="mord mathnormal">ε</span><span class="mspace" style="margin-right: 0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right: 0.2778em;"></span></span><span class="base"><span class="strut" style="height: 1.8075em; vertical-align: -0.686em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height: 1.1215em;"><span class="" style="top: -2.314em;"><span class="pstrut" style="height: 3em;"></span><span class="mord"><span class="mord text"><span class="mord">cos&nbsp;</span></span><span class="mord mathnormal" style="margin-right: 0.0037em;">α</span></span></span><span class="" style="top: -3.23em;"><span class="pstrut" style="height: 3em;"></span><span class="frac-line" style="border-bottom-width: 0.04em;"></span></span><span class="" style="top: -3.677em;"><span class="pstrut" style="height: 3em;"></span><span class="mord"><span class="mord">Ϡ</span><span class="mspace" style="margin-right: 0.2222em;"></span><span class="mbin">⋅</span><span class="mspace" style="margin-right: 0.2222em;"></span><span class="mord mathnormal">m</span><span class="mspace" style="margin-right: 0.2222em;"></span><span class="mbin">⋅</span><span class="mspace" style="margin-right: 0.2222em;"></span><span class="mord mathnormal" style="margin-right: 0.0278em;">r</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height: 0.686em;"><span class=""></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span>
+			</div>
+			</article>
+
+            <p>
+                Затраченная при квантовой телепортации энергия прямо пропорциональна произведению массы объекта на расстояние перемещения, и обратно пропорциональна косинусу угла между направлением перемещения и осью телепорта.
+            </p>
+        </div>
+
+        <div class="law">
+            <div class="law-number">LAW № 03</div>
+            <h3>Закон квантового заряда</h3>
+
+<div class="formula"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>W</mi><mo>=</mo><mi>Q</mi><mo>⋅</mo><mi mathvariant="normal">ϰ</mi><mo separator="true">,</mo><mtext>&nbsp;&nbsp;&nbsp;&nbsp;</mtext><mi mathvariant="normal">ϰ</mi><mo>=</mo><mo fence="true" stretchy="true" minsize="1.8em" maxsize="1.8em">(</mo><mfrac><mn>4</mn><mn>3</mn></mfrac><msup><mo fence="true" stretchy="true" minsize="1.8em" maxsize="1.8em">)</mo><mn>10</mn></msup></mrow><annotation encoding="application/x-tex">W = Q \cdot \varkappa, \space\space\space\  \varkappa = \Bigl(\frac{4}{3}\Bigr)^{10}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height: 0.6833em;"></span><span class="mord mathnormal" style="margin-right: 0.1389em;">W</span><span class="mspace" style="margin-right: 0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right: 0.2778em;"></span></span><span class="base"><span class="strut" style="height: 0.8778em; vertical-align: -0.1944em;"></span><span class="mord mathnormal">Q</span><span class="mspace" style="margin-right: 0.2222em;"></span><span class="mbin">⋅</span><span class="mspace" style="margin-right: 0.2222em;"></span></span><span class="base"><span class="strut" style="height: 0.625em; vertical-align: -0.1944em;"></span><span class="mord amsrm" style="margin-right: 0.0403em;">ϰ</span><span class="mpunct">,</span><span class="mspace">&nbsp;</span><span class="mspace">&nbsp;</span><span class="mspace">&nbsp;</span><span class="mspace">&nbsp;</span><span class="mspace" style="margin-right: 0.1667em;"></span><span class="mord amsrm" style="margin-right: 0.0403em;">ϰ</span><span class="mspace" style="margin-right: 0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right: 0.2778em;"></span></span><span class="base"><span class="strut" style="height: 2.04em; vertical-align: -0.686em;"></span><span class="mopen"><span class="delimsizing size2">(</span></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height: 1.3214em;"><span class="" style="top: -2.314em;"><span class="pstrut" style="height: 3em;"></span><span class="mord"><span class="mord">3</span></span></span><span class="" style="top: -3.23em;"><span class="pstrut" style="height: 3em;"></span><span class="frac-line" style="border-bottom-width: 0.04em;"></span></span><span class="" style="top: -3.677em;"><span class="pstrut" style="height: 3em;"></span><span class="mord"><span class="mord">4</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height: 0.686em;"><span class=""></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mclose"><span class="mclose"><span class="delimsizing size2">)</span></span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height: 1.354em;"><span class="" style="top: -3.6029em; margin-right: 0.05em;"><span class="pstrut" style="height: 2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">10</span></span></span></span></span></span></span></span></span></span></span></span></span></div>
+
+            <p>
+                Полная энергия квантового кристалла прямо пропорциональна произведению квантового заряда на коэффициент электроёмкости Омпсиландовых энергоносителей.
+            </p>
+        </div>
+
+        <div class="law">
+            <div class="law-number">LAW № 04</div>
+            <h3>Ускорение квантовой телепортации</h3>
+
+<div class="formulax"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mover accent="true"><mrow><mpadded width="0px"><mphantom><mo stretchy="false">(</mo></mphantom></mpadded><mtext>Ϡ</mtext></mrow><mo>⃗</mo></mover><mo>=</mo><mroot><mrow><mn>8</mn><mo stretchy="false">!</mo></mrow><mn>4</mn></mroot><mo>≈</mo><mn>14</mn><mo separator="true">,</mo><mn>17</mn><mfrac><mtext>кДж</mtext><mrow><mtext>кг</mtext><mo>⋅</mo><mtext>м</mtext></mrow></mfrac><mo>=</mo><mtext>const</mtext></mrow><annotation encoding="application/x-tex">\vec{\mathstrutϠ}= \sqrt[4]{8!}\approx 14,17 \frac{кДж}{кг\cdot м}= \text{const}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height: 1.283em; vertical-align: -0.25em;"></span><span class="mord accent"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height: 1.033em;"><span class="" style="top: -3em;"><span class="pstrut" style="height: 3em;"></span><span class="mord"><span class="mord rlap"><span class="inner"><span class="mord" style="color: transparent;"><span class="mopen" style="color: transparent;"><ya-tr-span data-index="512-0" data-translated="true" data-source-lang="en" data-target-lang="ru" data-value="(" data-translation="(" data-ch="0" data-type="trSpan" style="visibility: inherit !important;" data-selected="false">(</ya-tr-span></span></span></span><span class="fix"></span></span><span class="mord"><ya-tr-span data-index="512-0" data-translated="true" data-source-lang="en" data-target-lang="ru" data-value="Ϡ" data-translation="Ϡ" data-ch="0" data-type="trSpan" style="visibility: inherit !important;" data-selected="false">Ϡ</ya-tr-span></span></span></span><span class="" style="top: -3.319em;"><span class="pstrut" style="height: 3em;"></span><span class="accent-body" style="left: -0.2355em;"><span class="overlay" style="height: 0.714em; width: 0.471em;"><svg width="0.471em" height="0.714em" style="width:0.471em" viewBox="0 0 471 714" preserveAspectRatio="xMinYMin"><path d="M377 20c0-5.333 1.833-10 5.5-14S391 0 397 0c4.667 0 8.667 1.667 12 5
+3.333 2.667 6.667 9 10 19 6.667 24.667 20.333 43.667 41 57 7.333 4.667 11
+10.667 11 18 0 6-1 10-3 12s-6.667 5-14 9c-28.667 14.667-53.667 35.667-75 63
+-1.333 1.333-3.167 3.5-5.5 6.5s-4 4.833-5 5.5c-1 .667-2.5 1.333-4.5 2s-4.333 1
+-7 1c-4.667 0-9.167-1.833-13.5-5.5S337 184 337 178c0-12.667 15.667-32.333 47-59
+H213l-171-1c-8.667-6-13-12.333-13-19 0-4.667 4.333-11.333 13-20h359
+c-16-25.333-24-45-24-59z"></path></svg></span></span></span></span><span class="vlist-s"><ya-tr-span data-index="512-0" data-translated="true" data-source-lang="en" data-target-lang="ru" data-value="​" data-translation="​" data-ch="0" data-type="trSpan" style="visibility: inherit !important;" data-selected="false">​</ya-tr-span></span></span><span class="vlist-r"><span class="vlist" style="height: 0.25em;"><span class=""></span></span></span></span></span><span class="mspace" style="margin-right: 0.2778em;"></span><span class="mrel"><ya-tr-span data-index="512-0" data-translated="true" data-source-lang="en" data-target-lang="ru" data-value="=" data-translation="=" data-ch="0" data-type="trSpan" style="visibility: inherit !important;" data-selected="false">=</ya-tr-span></span><span class="mspace" style="margin-right: 0.2778em;"></span></span><span class="base"><span class="strut" style="height: 1.04em; vertical-align: -0.0589em;"></span><span class="mord sqrt"><span class="root"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height: 0.8755em;"><span class="" style="top: -3.0533em;"><span class="pstrut" style="height: 2.5em;"></span><span class="sizing reset-size6 size1 mtight"><span class="mord mtight"><span class="mord mtight"><ya-tr-span data-index="512-0" data-translated="true" data-source-lang="en" data-target-lang="ru" data-value="4" data-translation="4" data-ch="0" data-type="trSpan" style="visibility: inherit !important;" data-selected="false">4</ya-tr-span></span></span></span></span></span></span></span></span><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height: 0.9811em;"><span class="svg-align" style="top: -3em;"><span class="pstrut" style="height: 3em;"></span><span class="mord" style="padding-left: 0.833em;"><span class="mord"><ya-tr-span data-index="512-0" data-translated="true" data-source-lang="en" data-target-lang="ru" data-value="8" data-translation="8" data-ch="0" data-type="trSpan" style="visibility: inherit !important;" data-selected="false">8</ya-tr-span></span><span class="mclose"><ya-tr-span data-index="512-0" data-translated="true" data-source-lang="en" data-target-lang="ru" data-value="!" data-translation="!" data-ch="0" data-type="trSpan" style="visibility: inherit !important;" data-selected="false">!</ya-tr-span></span></span></span><span class="" style="top: -2.9411em;"><span class="pstrut" style="height: 3em;"></span><span class="hide-tail" style="min-width: 0.853em; height: 1.08em;"><svg width="400em" height="1.08em" viewBox="0 0 400000 1080" preserveAspectRatio="xMinYMin slice"><path d="M95,702
+c-2.7,0,-7.17,-2.7,-13.5,-8c-5.8,-5.3,-9.5,-10,-9.5,-14
+c0,-2,0.3,-3.3,1,-4c1.3,-2.7,23.83,-20.7,67.5,-54
+c44.2,-33.3,65.8,-50.3,66.5,-51c1.3,-1.3,3,-2,5,-2c4.7,0,8.7,3.3,12,10
+s173,378,173,378c0.7,0,35.3,-71,104,-213c68.7,-142,137.5,-285,206.5,-429
+c69,-144,104.5,-217.7,106.5,-221
+l0 -0
+c5.3,-9.3,12,-14,20,-14
+H400000v40H845.2724
+s-225.272,467,-225.272,467s-235,486,-235,486c-2.7,4.7,-9,7,-19,7
+c-6,0,-10,-1,-12,-3s-194,-422,-194,-422s-65,47,-65,47z
+M834 80h400000v40h-400000z"></path></svg></span></span></span><span class="vlist-s"><ya-tr-span data-index="512-0" data-translated="true" data-source-lang="en" data-target-lang="ru" data-value="​" data-translation="​" data-ch="0" data-type="trSpan" style="visibility: inherit !important;" data-selected="false">​</ya-tr-span></span></span><span class="vlist-r"><span class="vlist" style="height: 0.0589em;"><span class=""></span></span></span></span></span><span class="mspace" style="margin-right: 0.2778em;"></span><span class="mrel"><ya-tr-span data-index="512-0" data-translated="true" data-source-lang="en" data-target-lang="ru" data-value="≈" data-translation="≈" data-ch="0" data-type="trSpan" style="visibility: inherit !important;" data-selected="false">≈</ya-tr-span></span><span class="mspace" style="margin-right: 0.2778em;"></span></span><span class="base"><span class="strut" style="height: 2.0463em; vertical-align: -0.686em;"></span><span class="mord"><ya-tr-span data-index="512-0" data-translated="true" data-source-lang="en" data-target-lang="ru" data-value="14" data-translation="14" data-ch="0" data-type="trSpan" style="visibility: inherit !important;" data-selected="false">14</ya-tr-span></span><span class="mpunct"><ya-tr-span data-index="512-0" data-translated="true" data-source-lang="en" data-target-lang="ru" data-value="," data-translation="," data-ch="0" data-type="trSpan" style="visibility: inherit !important;" data-selected="false">,</ya-tr-span></span><span class="mspace" style="margin-right: 0.1667em;"></span><span class="mord"><ya-tr-span data-index="512-0" data-translated="true" data-source-lang="en" data-target-lang="ru" data-value="17" data-translation="17" data-ch="0" data-type="trSpan" style="visibility: inherit !important;" data-selected="false">17</ya-tr-span></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height: 1.3603em;"><span class="" style="top: -2.314em;"><span class="pstrut" style="height: 3em;"></span><span class="mord"><span class="mord cyrillic_fallback"><ya-tr-span data-index="512-0" data-translated="true" data-source-lang="en" data-target-lang="ru" data-value="кг" data-translation="кг" data-ch="0" data-type="trSpan" style="visibility: inherit !important;" data-selected="false">кг</ya-tr-span></span><span class="mspace" style="margin-right: 0.2222em;"></span><span class="mbin"><ya-tr-span data-index="512-0" data-translated="true" data-source-lang="en" data-target-lang="ru" data-value="⋅" data-translation="⋅" data-ch="0" data-type="trSpan" style="visibility: inherit !important;" data-selected="false">⋅</ya-tr-span></span><span class="mspace" style="margin-right: 0.2222em;"></span><span class="mord cyrillic_fallback"><ya-tr-span data-index="512-0" data-translated="true" data-source-lang="en" data-target-lang="ru" data-value="м" data-translation="м" data-ch="0" data-type="trSpan" style="visibility: inherit !important;" data-selected="false">м</ya-tr-span></span></span></span><span class="" style="top: -3.23em;"><span class="pstrut" style="height: 3em;"></span><span class="frac-line" style="border-bottom-width: 0.04em;"></span></span><span class="" style="top: -3.677em;"><span class="pstrut" style="height: 3em;"></span><span class="mord"><span class="mord cyrillic_fallback"><ya-tr-span data-index="512-0" data-translated="true" data-source-lang="en" data-target-lang="ru" data-value="кДж" data-translation="кДж" data-ch="0" data-type="trSpan" style="visibility: inherit !important;" data-selected="false">кДж</ya-tr-span></span></span></span></span><span class="vlist-s"><ya-tr-span data-index="512-0" data-translated="true" data-source-lang="en" data-target-lang="ru" data-value="​" data-translation="​" data-ch="0" data-type="trSpan" style="visibility: inherit !important;" data-selected="false">​</ya-tr-span></span></span><span class="vlist-r"><span class="vlist" style="height: 0.686em;"><span class=""></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right: 0.2778em;"></span><span class="mrel"><ya-tr-span data-index="512-0" data-translated="true" data-source-lang="en" data-target-lang="ru" data-value="=" data-translation="=" data-ch="0" data-type="trSpan" style="visibility: inherit !important;" data-selected="false">=</ya-tr-span></span><span class="mspace" style="margin-right: 0.2778em;"></span></span><span class="base"><span class="strut" style="height: 0.6151em;"></span><span class="mord text"><span class="mord"><ya-tr-span data-index="512-0" data-translated="true" data-source-lang="en" data-target-lang="ru" data-value="const" data-translation="const" data-ch="0" data-type="trSpan" style="visibility: inherit !important;" data-selected="false">const</ya-tr-span></span></span></span></span></span></span></div>
+
+            <p>
+                Ускорение квантовой телепортации — это ускорение, с которым движется тело во время квантовой телепортации. Другое название — квант-телепортическая постоянная (константа).
+            </p>
+        </div>
+		
+		<div class="spoiler-warning">
+
+		<h3>⏲ Формулы комплексного времени</h3>
+
+		<p>
+		Следующий раздел содержит блок формул о комплексном времени, будущих в книге «Октомпсиланда».
+		Для удобства они были скрыты от остальных.
+		</p>
+
+		<button class="show-spoilers" onclick="toggleSpoilers()">
+		Показать формулы
+		</button>
+
+		</div>
+
+			<div id="spoilerSection">
+
+			<div class="faq-container">
+
+				<div class="faq-item">
+
+		<div class="faq-question" onclick="toggleFAQ(this)">
+		<span>Формула полного комплексного времени</span>
+		<span>+</span>
+		</div>
+
+		<div class="faq-answer">
+		
+		<div class="law">
+            <div class="law-number">LAW № 05</div>
+			
+			<div class="formula"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mtext>Full&nbsp;&nbsp;</mtext><mi>ξ</mi><mo>=</mo><mi>τ</mi><mo>⋅</mo><mi>ι</mi><mspace linebreak="newline"></mspace><mtext>Real&nbsp;&nbsp;</mtext><mi>τ</mi><mo>=</mo><mtext>h</mtext><mo>+</mo><mfrac><mtext>min</mtext><mn>60</mn></mfrac><mspace linebreak="newline"></mspace><mtext>Coeff&nbsp;&nbsp;</mtext><mi>ι</mi><mo>=</mo><mtext>cos&nbsp;</mtext><mi>φ</mi><mo>+</mo><mi>i</mi><mo>⋅</mo><mtext>sin&nbsp;</mtext><mi>φ</mi></mrow><annotation encoding="application/x-tex">\text{Full}\space\ \xi = \tau\cdot\iota\\\text{Real}\space\ \tau = \text{h}+\frac{\text{min}}{60}\\\text{Coeff}\space\ \iota=\text{cos}\space\varphi + i\cdot\text{sin}\space\varphi</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height: 0.8889em; vertical-align: -0.1944em;"></span><span class="mord text"><span class="mord">Full</span></span><span class="mspace">&nbsp;</span><span class="mspace">&nbsp;</span><span class="mord mathnormal" style="margin-right: 0.046em;">ξ</span><span class="mspace" style="margin-right: 0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right: 0.2778em;"></span></span><span class="base"><span class="strut" style="height: 0.4445em;"></span><span class="mord mathnormal" style="margin-right: 0.1132em;">τ</span><span class="mspace" style="margin-right: 0.2222em;"></span><span class="mbin">⋅</span><span class="mspace" style="margin-right: 0.2222em;"></span></span><span class="base"><span class="strut" style="height: 0.4306em;"></span><span class="mord mathnormal">ι</span></span><span class="mspace newline"></span><span class="base"><span class="strut" style="height: 0.6944em;"></span><span class="mord text"><span class="mord">Real</span></span><span class="mspace">&nbsp;</span><span class="mspace">&nbsp;</span><span class="mord mathnormal" style="margin-right: 0.1132em;">τ</span><span class="mspace" style="margin-right: 0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right: 0.2778em;"></span></span><span class="base"><span class="strut" style="height: 0.7778em; vertical-align: -0.0833em;"></span><span class="mord text"><span class="mord">h</span></span><span class="mspace" style="margin-right: 0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right: 0.2222em;"></span></span><span class="base"><span class="strut" style="height: 2.0309em; vertical-align: -0.686em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height: 1.3449em;"><span class="" style="top: -2.314em;"><span class="pstrut" style="height: 3em;"></span><span class="mord"><span class="mord">60</span></span></span><span class="" style="top: -3.23em;"><span class="pstrut" style="height: 3em;"></span><span class="frac-line" style="border-bottom-width: 0.04em;"></span></span><span class="" style="top: -3.677em;"><span class="pstrut" style="height: 3em;"></span><span class="mord"><span class="mord text"><span class="mord">min</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height: 0.686em;"><span class=""></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span><span class="mspace newline"></span><span class="base"><span class="strut" style="height: 0.6944em;"></span><span class="mord text"><span class="mord">Coeff</span></span><span class="mspace">&nbsp;</span><span class="mspace">&nbsp;</span><span class="mord mathnormal">ι</span><span class="mspace" style="margin-right: 0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right: 0.2778em;"></span></span><span class="base"><span class="strut" style="height: 0.7778em; vertical-align: -0.1944em;"></span><span class="mord text"><span class="mord">cos</span></span><span class="mspace">&nbsp;</span><span class="mord mathnormal">φ</span><span class="mspace" style="margin-right: 0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right: 0.2222em;"></span></span><span class="base"><span class="strut" style="height: 0.6595em;"></span><span class="mord mathnormal">i</span><span class="mspace" style="margin-right: 0.2222em;"></span><span class="mbin">⋅</span><span class="mspace" style="margin-right: 0.2222em;"></span></span><span class="base"><span class="strut" style="height: 0.8623em; vertical-align: -0.1944em;"></span><span class="mord text"><span class="mord">sin</span></span><span class="mspace">&nbsp;</span><span class="mord mathnormal">φ</span></span></span></span></span></div>
+
+            <p>
+				Полное комплексное время ξ-кси состоит из действительной части τ-тау (т.е. настоящего реального времени, которое одинаково в каждой точке Омпсиланды) и мнимой части ι-йота, которая обозначается комплексным коэффициентом и зависит от угла φ-фи ультрафиолетовой стрелки на комплексной плоскости. Реальное же время измеряется в целых часах и минутах – его 60-х долях. Значение угла φ-фи меняется в зависимости от того, где измеряется комплексное время.
+            </p>
+			
+			<div class="formulax"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mtext>Displayed&nbsp;&nbsp;</mtext><msub><mi>t</mi><mtext>стрелок</mtext></msub><mo>=</mo><mtext>Re</mtext><mo stretchy="false">(</mo><mi>ξ</mi><mo stretchy="false">)</mo><mo>=</mo><mi>τ</mi><mo>⋅</mo><mtext>cos&nbsp;</mtext><mi>φ</mi></mrow><annotation encoding="application/x-tex">\text{Displayed}\space\ t_{стрелок}=\text{Re}(\xi)=\tau\cdot\text{cos}\space\varphi</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height: 0.9805em; vertical-align: -0.2861em;"></span><span class="mord text"><span class="mord">Displayed</span></span><span class="mspace">&nbsp;</span><span class="mspace">&nbsp;</span><span class="mord"><span class="mord mathnormal">t</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height: 0.1514em;"><span class="" style="top: -2.55em; margin-left: 0em; margin-right: 0.05em;"><span class="pstrut" style="height: 2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord cyrillic_fallback mtight">стрелок</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height: 0.2861em;"><span class=""></span></span></span></span></span></span><span class="mspace" style="margin-right: 0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right: 0.2778em;"></span></span><span class="base"><span class="strut" style="height: 1em; vertical-align: -0.25em;"></span><span class="mord text"><span class="mord">Re</span></span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right: 0.046em;">ξ</span><span class="mclose">)</span><span class="mspace" style="margin-right: 0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right: 0.2778em;"></span></span><span class="base"><span class="strut" style="height: 0.4445em;"></span><span class="mord mathnormal" style="margin-right: 0.1132em;">τ</span><span class="mspace" style="margin-right: 0.2222em;"></span><span class="mbin">⋅</span><span class="mspace" style="margin-right: 0.2222em;"></span></span><span class="base"><span class="strut" style="height: 0.625em; vertical-align: -0.1944em;"></span><span class="mord text"><span class="mord">cos</span></span><span class="mspace">&nbsp;</span><span class="mord mathnormal">φ</span></span></span></span></span></div>
+
+			<p>
+				Если φ-фи = 0, то ι-йота = 1. В данном случае чёрные стрелки комплексных часов будут показывать чистое реальное время τ-тау. Но если угол φ-фи не равен нулю, то ι-йота не равна единице, следовательно, в значении ξ-кси будет присутствовать мнимая часть, которую часы попросту не могут отобразить. Поэтому стрелки показывают лишь действительную часть комплексного числа ξ-кси. И эта величина может значительно отличаться от настоящего реального времени τ-тау, т.к. она умножена на косинус φ-фи.
+			</p>
+			
+			<div class="formula"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mtext>If&nbsp;&nbsp;</mtext><msub><mi>t</mi><mtext>стрелок</mtext></msub><mo>&gt;</mo><mn>0</mn><mo>⇒</mo><mi mathvariant="normal">✓</mi></mrow><annotation encoding="application/x-tex">\text{If}\space\ t_{стрелок}&gt; 0 \Rightarrow \checkmark</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height: 0.9805em; vertical-align: -0.2861em;"></span><span class="mord text"><span class="mord">If</span></span><span class="mspace">&nbsp;</span><span class="mspace">&nbsp;</span><span class="mord"><span class="mord mathnormal">t</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height: 0.1514em;"><span class="" style="top: -2.55em; margin-left: 0em; margin-right: 0.05em;"><span class="pstrut" style="height: 2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord cyrillic_fallback mtight">стрелок</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height: 0.2861em;"><span class=""></span></span></span></span></span></span><span class="mspace" style="margin-right: 0.2778em;"></span><span class="mrel">&gt;</span><span class="mspace" style="margin-right: 0.2778em;"></span></span><span class="base"><span class="strut" style="height: 0.6444em;"></span><span class="mord">0</span><span class="mspace" style="margin-right: 0.2778em;"></span><span class="mrel">⇒</span><span class="mspace" style="margin-right: 0.2778em;"></span></span><span class="base"><span class="strut" style="height: 0.6922em;"></span><span class="mord amsrm">✓</span></span></span></span></span></div>
+			<div class="formulax"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mtext>If&nbsp;&nbsp;</mtext><msub><mi>t</mi><mtext>стр.</mtext></msub><mo>&lt;</mo><mn>0</mn><mtext>&nbsp;</mtext><mo>⇒</mo><mtext>&nbsp;&nbsp;</mtext><msub><mi>t</mi><mtext>стр.</mtext></msub><mo>=</mo><mo></mo><msub><mi>t</mi><mtext>стр.</mtext></msub><mo>+</mo><mn>24</mn><mtext>h</mtext></mrow><annotation encoding="application/x-tex">\text{If}\space\ t_{стр.}&lt; 0 \space\Rightarrow\space\ t_{стр.}= -t_{стр.}+24\text{h}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height: 0.9805em; vertical-align: -0.2861em;"></span><span class="mord text"><span class="mord">If</span></span><span class="mspace">&nbsp;</span><span class="mspace">&nbsp;</span><span class="mord"><span class="mord mathnormal">t</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height: 0.1514em;"><span class="" style="top: -2.55em; margin-left: 0em; margin-right: 0.05em;"><span class="pstrut" style="height: 2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord cyrillic_fallback mtight">стр.</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height: 0.2861em;"><span class=""></span></span></span></span></span></span><span class="mspace" style="margin-right: 0.2778em;"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right: 0.2778em;"></span></span><span class="base"><span class="strut" style="height: 0.6444em;"></span><span class="mord">0</span><span class="mspace">&nbsp;</span><span class="mspace" style="margin-right: 0.2778em;"></span><span class="mrel">⇒</span><span class="mspace">&nbsp;</span><span class="mspace">&nbsp;</span><span class="mspace" style="margin-right: 0.2778em;"></span></span><span class="base"><span class="strut" style="height: 0.9012em; vertical-align: -0.2861em;"></span><span class="mord"><span class="mord mathnormal">t</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height: 0.1514em;"><span class="" style="top: -2.55em; margin-left: 0em; margin-right: 0.05em;"><span class="pstrut" style="height: 2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord cyrillic_fallback mtight">стр.</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height: 0.2861em;"><span class=""></span></span></span></span></span></span><span class="mspace" style="margin-right: 0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right: 0.2778em;"></span></span><span class="base"><span class="strut" style="height: 0.9012em; vertical-align: -0.2861em;"></span><span class="mord"></span><span class="mord"><span class="mord mathnormal">t</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height: 0.1514em;"><span class="" style="top: -2.55em; margin-left: 0em; margin-right: 0.05em;"><span class="pstrut" style="height: 2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord cyrillic_fallback mtight">стр.</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height: 0.2861em;"><span class=""></span></span></span></span></span></span><span class="mspace" style="margin-right: 0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right: 0.2222em;"></span></span><span class="base"><span class="strut" style="height: 0.6944em;"></span><span class="mord">24</span><span class="mord text"><span class="mord">h</span></span></span></span></span></span></div>
+
+			<p>
+				Если получившееся значение отображаемого стрелками времени больше нуля, то всё отлично: целую часть показывает часовая стрелка, а числитель дроби при знаменателе 60 – минутная стрелка. Однако если получившееся значение этой величины оказалось меньше нуля, то нужно всего лишь прибавить 24 часа и получится допустимое положительное значение. Это правило было выведено по аналогии с углами: ведь угол в -30° равен углу в 360° - 30°, что равно 330°, из чего следует: -30°=330°. То же самое и здесь.
+			</p>
+
+        </div>
+		
+		</div>
+
+		</div>
+
+			</div>
+		
+		<div class="faq-container">
+
+				<div class="faq-item">
+
+		<div class="faq-question" onclick="toggleFAQ(this)">
+		<span>Примеры действия формулы</span>
+		<span>+</span>
+		</div>
+
+		<div class="faq-answer">
+		
+		<div class="law">
+            <div class="law-number">LAW № 05</div>
+			
+			<div class="formulax"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mtext>Full&nbsp;&nbsp;</mtext><mi>ξ</mi><mo>=</mo><mi>τ</mi><mo>⋅</mo><mi>ι</mi><mo separator="true">,</mo><mtext>&nbsp;&nbsp;</mtext><mi>ι</mi><mo>=</mo><mo stretchy="false">(</mo><mtext>cos&nbsp;</mtext><mi>φ</mi><mo>+</mo><mi>i</mi><mo>⋅</mo><mtext>sin&nbsp;</mtext><mi>φ</mi><mo stretchy="false">)</mo><mspace linebreak="newline"></mspace><mtext>Example:</mtext><mspace linebreak="newline"></mspace><mtext>Let&nbsp;</mtext><mi>τ</mi><mo>=</mo><mtext>14:20</mtext><mo>=</mo><mn>14</mn><mo>+</mo><mfrac><mn>20</mn><mn>60</mn></mfrac><mo>=</mo><mn>14</mn><mfrac><mn>1</mn><mn>3</mn></mfrac><mtext>&nbsp;h</mtext></mrow><annotation encoding="application/x-tex">\text{Full}\space\ \xi = \tau\cdot\iota,\space\ \iota=(\text{cos}\space\varphi + i\cdot\text{sin}\space\varphi)\\\text{Example:}\\\text{Let}\space\tau=\text{14:20}=14+\frac{20}{60}=14\frac{1}{3}\space\text{h}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height: 0.8889em; vertical-align: -0.1944em;"></span><span class="mord text"><span class="mord">Full</span></span><span class="mspace">&nbsp;</span><span class="mspace">&nbsp;</span><span class="mord mathnormal" style="margin-right: 0.046em;">ξ</span><span class="mspace" style="margin-right: 0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right: 0.2778em;"></span></span><span class="base"><span class="strut" style="height: 0.4445em;"></span><span class="mord mathnormal" style="margin-right: 0.1132em;">τ</span><span class="mspace" style="margin-right: 0.2222em;"></span><span class="mbin">⋅</span><span class="mspace" style="margin-right: 0.2222em;"></span></span><span class="base"><span class="strut" style="height: 0.625em; vertical-align: -0.1944em;"></span><span class="mord mathnormal">ι</span><span class="mpunct">,</span><span class="mspace">&nbsp;</span><span class="mspace">&nbsp;</span><span class="mspace" style="margin-right: 0.1667em;"></span><span class="mord mathnormal">ι</span><span class="mspace" style="margin-right: 0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right: 0.2778em;"></span></span><span class="base"><span class="strut" style="height: 1em; vertical-align: -0.25em;"></span><span class="mopen">(</span><span class="mord text"><span class="mord">cos</span></span><span class="mspace">&nbsp;</span><span class="mord mathnormal">φ</span><span class="mspace" style="margin-right: 0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right: 0.2222em;"></span></span><span class="base"><span class="strut" style="height: 0.6595em;"></span><span class="mord mathnormal">i</span><span class="mspace" style="margin-right: 0.2222em;"></span><span class="mbin">⋅</span><span class="mspace" style="margin-right: 0.2222em;"></span></span><span class="base"><span class="strut" style="height: 1em; vertical-align: -0.25em;"></span><span class="mord text"><span class="mord">sin</span></span><span class="mspace">&nbsp;</span><span class="mord mathnormal">φ</span><span class="mclose">)</span></span><span class="mspace newline"></span><span class="base"><span class="strut" style="height: 0.8889em; vertical-align: -0.1944em;"></span><span class="mord text"><span class="mord">Example:</span></span></span><span class="mspace newline"></span><span class="base"><span class="strut" style="height: 0.6833em;"></span><span class="mord text"><span class="mord">Let</span></span><span class="mspace">&nbsp;</span><span class="mord mathnormal" style="margin-right: 0.1132em;">τ</span><span class="mspace" style="margin-right: 0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right: 0.2778em;"></span></span><span class="base"><span class="strut" style="height: 0.6444em;"></span><span class="mord text"><span class="mord">14:20</span></span><span class="mspace" style="margin-right: 0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right: 0.2778em;"></span></span><span class="base"><span class="strut" style="height: 0.7278em; vertical-align: -0.0833em;"></span><span class="mord">14</span><span class="mspace" style="margin-right: 0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right: 0.2222em;"></span></span><span class="base"><span class="strut" style="height: 2.0074em; vertical-align: -0.686em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height: 1.3214em;"><span class="" style="top: -2.314em;"><span class="pstrut" style="height: 3em;"></span><span class="mord"><span class="mord">60</span></span></span><span class="" style="top: -3.23em;"><span class="pstrut" style="height: 3em;"></span><span class="frac-line" style="border-bottom-width: 0.04em;"></span></span><span class="" style="top: -3.677em;"><span class="pstrut" style="height: 3em;"></span><span class="mord"><span class="mord">20</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height: 0.686em;"><span class=""></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right: 0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right: 0.2778em;"></span></span><span class="base"><span class="strut" style="height: 2.0074em; vertical-align: -0.686em;"></span><span class="mord">14</span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height: 1.3214em;"><span class="" style="top: -2.314em;"><span class="pstrut" style="height: 3em;"></span><span class="mord"><span class="mord">3</span></span></span><span class="" style="top: -3.23em;"><span class="pstrut" style="height: 3em;"></span><span class="frac-line" style="border-bottom-width: 0.04em;"></span></span><span class="" style="top: -3.677em;"><span class="pstrut" style="height: 3em;"></span><span class="mord"><span class="mord">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height: 0.686em;"><span class=""></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace">&nbsp;</span><span class="mord text"><span class="mord">h</span></span></span></span></span></span></div>
+			
+			<div class="formulax"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mtext>Let&nbsp;&nbsp;</mtext><mi>φ</mi><mo>=</mo><mn>12</mn><msup><mn>0</mn><mo lspace="0em" rspace="0em">∘</mo></msup><mo>⇒</mo><mi>ι</mi><mo>=</mo><mo fence="false" stretchy="true" minsize="1.8em" maxsize="1.8em">(</mo><mo>−</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mo>+</mo><mfrac><msqrt><mn>3</mn></msqrt><mn>2</mn></mfrac><mi>i</mi><mo fence="false" stretchy="true" minsize="1.8em" maxsize="1.8em">)</mo></mrow><annotation encoding="application/x-tex">\text{Let}\space\ \varphi=120^{\circ}\Rightarrow\iota=\Big(-\frac{1}{2}+\frac{\sqrt{3}}{2}i\Big)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height: 0.8778em; vertical-align: -0.1944em;"></span><span class="mord text"><span class="mord">Let</span></span><span class="mspace">&nbsp;</span><span class="mspace">&nbsp;</span><span class="mord mathnormal">φ</span><span class="mspace" style="margin-right: 0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right: 0.2778em;"></span></span><span class="base"><span class="strut" style="height: 0.7241em;"></span><span class="mord">12</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height: 0.7241em;"><span class="" style="top: -3.113em; margin-right: 0.05em;"><span class="pstrut" style="height: 2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">∘</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right: 0.2778em;"></span><span class="mrel">⇒</span><span class="mspace" style="margin-right: 0.2778em;"></span></span><span class="base"><span class="strut" style="height: 0.4306em;"></span><span class="mord mathnormal">ι</span><span class="mspace" style="margin-right: 0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right: 0.2778em;"></span></span><span class="base"><span class="strut" style="height: 1.8em; vertical-align: -0.65em;"></span><span class="mord"><span class="delimsizing size2">(</span></span><span class="mspace" style="margin-right: 0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right: 0.2222em;"></span></span><span class="base"><span class="strut" style="height: 2.0074em; vertical-align: -0.686em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height: 1.3214em;"><span class="" style="top: -2.314em;"><span class="pstrut" style="height: 3em;"></span><span class="mord"><span class="mord">2</span></span></span><span class="" style="top: -3.23em;"><span class="pstrut" style="height: 3em;"></span><span class="frac-line" style="border-bottom-width: 0.04em;"></span></span><span class="" style="top: -3.677em;"><span class="pstrut" style="height: 3em;"></span><span class="mord"><span class="mord">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height: 0.686em;"><span class=""></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right: 0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right: 0.2222em;"></span></span><span class="base"><span class="strut" style="height: 2.2702em; vertical-align: -0.686em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height: 1.5842em;"><span class="" style="top: -2.314em;"><span class="pstrut" style="height: 3em;"></span><span class="mord"><span class="mord">2</span></span></span><span class="" style="top: -3.23em;"><span class="pstrut" style="height: 3em;"></span><span class="frac-line" style="border-bottom-width: 0.04em;"></span></span><span class="" style="top: -3.677em;"><span class="pstrut" style="height: 3em;"></span><span class="mord"><span class="mord sqrt"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height: 0.9072em;"><span class="svg-align" style="top: -3em;"><span class="pstrut" style="height: 3em;"></span><span class="mord" style="padding-left: 0.833em;"><span class="mord">3</span></span></span><span class="" style="top: -2.8672em;"><span class="pstrut" style="height: 3em;"></span><span class="hide-tail" style="min-width: 0.853em; height: 1.08em;"><svg width="400em" height="1.08em" viewBox="0 0 400000 1080" preserveAspectRatio="xMinYMin slice"><path d="M95,702
+c-2.7,0,-7.17,-2.7,-13.5,-8c-5.8,-5.3,-9.5,-10,-9.5,-14
+c0,-2,0.3,-3.3,1,-4c1.3,-2.7,23.83,-20.7,67.5,-54
+c44.2,-33.3,65.8,-50.3,66.5,-51c1.3,-1.3,3,-2,5,-2c4.7,0,8.7,3.3,12,10
+s173,378,173,378c0.7,0,35.3,-71,104,-213c68.7,-142,137.5,-285,206.5,-429
+c69,-144,104.5,-217.7,106.5,-221
+l0 -0
+c5.3,-9.3,12,-14,20,-14
+H400000v40H845.2724
+s-225.272,467,-225.272,467s-235,486,-235,486c-2.7,4.7,-9,7,-19,7
+c-6,0,-10,-1,-12,-3s-194,-422,-194,-422s-65,47,-65,47z
+M834 80h400000v40h-400000z"></path></svg></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height: 0.1328em;"><span class=""></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height: 0.686em;"><span class=""></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mord mathnormal">i</span><span class="mord"><span class="delimsizing size2">)</span></span></span></span></span></span></div>
+
+			<div class="formulax"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mtext>Then&nbsp;&nbsp;</mtext><mi>ξ</mi><mo>=</mo><mn>14</mn><mfrac><mn>1</mn><mn>3</mn></mfrac><mo>⋅</mo><mo fence="false" stretchy="true" minsize="1.8em" maxsize="1.8em">(</mo><mo>−</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mo fence="false" stretchy="true" minsize="1.8em" maxsize="1.8em">)</mo><mo>+</mo><mn>14</mn><mfrac><mn>1</mn><mn>3</mn></mfrac><mo>⋅</mo><mfrac><msqrt><mn>3</mn></msqrt><mn>2</mn></mfrac><mi>i</mi><mo>=</mo><mspace linebreak="newline"></mspace><mo>=</mo><mo>−</mo><mn>7</mn><mfrac><mn>1</mn><mn>6</mn></mfrac><mo>+</mo><mfrac><mrow><mn>43</mn><msqrt><mn>3</mn></msqrt></mrow><mn>6</mn></mfrac><mi>i</mi><mtext>&nbsp;h</mtext></mrow><annotation encoding="application/x-tex">\text{Then}\space\ \xi = 14\frac{1}{3}\cdot\Big(-\frac{1}{2}\Big)+14\frac{1}{3}\cdot\frac{\sqrt{3}}{2}i=\\=-7\frac{1}{6}+\frac{43\sqrt{3}}{6}i\space\text{h}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height: 0.8889em; vertical-align: -0.1944em;"></span><span class="mord text"><span class="mord">Then</span></span><span class="mspace">&nbsp;</span><span class="mspace">&nbsp;</span><span class="mord mathnormal" style="margin-right: 0.046em;">ξ</span><span class="mspace" style="margin-right: 0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right: 0.2778em;"></span></span><span class="base"><span class="strut" style="height: 2.0074em; vertical-align: -0.686em;"></span><span class="mord">14</span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height: 1.3214em;"><span class="" style="top: -2.314em;"><span class="pstrut" style="height: 3em;"></span><span class="mord"><span class="mord">3</span></span></span><span class="" style="top: -3.23em;"><span class="pstrut" style="height: 3em;"></span><span class="frac-line" style="border-bottom-width: 0.04em;"></span></span><span class="" style="top: -3.677em;"><span class="pstrut" style="height: 3em;"></span><span class="mord"><span class="mord">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height: 0.686em;"><span class=""></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right: 0.2222em;"></span><span class="mbin">⋅</span><span class="mspace" style="margin-right: 0.2222em;"></span></span><span class="base"><span class="strut" style="height: 1.8em; vertical-align: -0.65em;"></span><span class="mord"><span class="delimsizing size2">(</span></span><span class="mspace" style="margin-right: 0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right: 0.2222em;"></span></span><span class="base"><span class="strut" style="height: 2.0074em; vertical-align: -0.686em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height: 1.3214em;"><span class="" style="top: -2.314em;"><span class="pstrut" style="height: 3em;"></span><span class="mord"><span class="mord">2</span></span></span><span class="" style="top: -3.23em;"><span class="pstrut" style="height: 3em;"></span><span class="frac-line" style="border-bottom-width: 0.04em;"></span></span><span class="" style="top: -3.677em;"><span class="pstrut" style="height: 3em;"></span><span class="mord"><span class="mord">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height: 0.686em;"><span class=""></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mord"><span class="delimsizing size2">)</span></span><span class="mspace" style="margin-right: 0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right: 0.2222em;"></span></span><span class="base"><span class="strut" style="height: 2.0074em; vertical-align: -0.686em;"></span><span class="mord">14</span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height: 1.3214em;"><span class="" style="top: -2.314em;"><span class="pstrut" style="height: 3em;"></span><span class="mord"><span class="mord">3</span></span></span><span class="" style="top: -3.23em;"><span class="pstrut" style="height: 3em;"></span><span class="frac-line" style="border-bottom-width: 0.04em;"></span></span><span class="" style="top: -3.677em;"><span class="pstrut" style="height: 3em;"></span><span class="mord"><span class="mord">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height: 0.686em;"><span class=""></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right: 0.2222em;"></span><span class="mbin">⋅</span><span class="mspace" style="margin-right: 0.2222em;"></span></span><span class="base"><span class="strut" style="height: 2.2702em; vertical-align: -0.686em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height: 1.5842em;"><span class="" style="top: -2.314em;"><span class="pstrut" style="height: 3em;"></span><span class="mord"><span class="mord">2</span></span></span><span class="" style="top: -3.23em;"><span class="pstrut" style="height: 3em;"></span><span class="frac-line" style="border-bottom-width: 0.04em;"></span></span><span class="" style="top: -3.677em;"><span class="pstrut" style="height: 3em;"></span><span class="mord"><span class="mord sqrt"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height: 0.9072em;"><span class="svg-align" style="top: -3em;"><span class="pstrut" style="height: 3em;"></span><span class="mord" style="padding-left: 0.833em;"><span class="mord">3</span></span></span><span class="" style="top: -2.8672em;"><span class="pstrut" style="height: 3em;"></span><span class="hide-tail" style="min-width: 0.853em; height: 1.08em;"><svg width="400em" height="1.08em" viewBox="0 0 400000 1080" preserveAspectRatio="xMinYMin slice"><path d="M95,702
+c-2.7,0,-7.17,-2.7,-13.5,-8c-5.8,-5.3,-9.5,-10,-9.5,-14
+c0,-2,0.3,-3.3,1,-4c1.3,-2.7,23.83,-20.7,67.5,-54
+c44.2,-33.3,65.8,-50.3,66.5,-51c1.3,-1.3,3,-2,5,-2c4.7,0,8.7,3.3,12,10
+s173,378,173,378c0.7,0,35.3,-71,104,-213c68.7,-142,137.5,-285,206.5,-429
+c69,-144,104.5,-217.7,106.5,-221
+l0 -0
+c5.3,-9.3,12,-14,20,-14
+H400000v40H845.2724
+s-225.272,467,-225.272,467s-235,486,-235,486c-2.7,4.7,-9,7,-19,7
+c-6,0,-10,-1,-12,-3s-194,-422,-194,-422s-65,47,-65,47z
+M834 80h400000v40h-400000z"></path></svg></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height: 0.1328em;"><span class=""></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height: 0.686em;"><span class=""></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mord mathnormal">i</span><span class="mspace" style="margin-right: 0.2778em;"></span><span class="mrel">=</span></span><span class="mspace newline"></span><span class="base"><span class="strut" style="height: 0.3669em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right: 0.2778em;"></span></span><span class="base"><span class="strut" style="height: 2.0074em; vertical-align: -0.686em;"></span><span class="mord">−</span><span class="mord">7</span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height: 1.3214em;"><span class="" style="top: -2.314em;"><span class="pstrut" style="height: 3em;"></span><span class="mord"><span class="mord">6</span></span></span><span class="" style="top: -3.23em;"><span class="pstrut" style="height: 3em;"></span><span class="frac-line" style="border-bottom-width: 0.04em;"></span></span><span class="" style="top: -3.677em;"><span class="pstrut" style="height: 3em;"></span><span class="mord"><span class="mord">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height: 0.686em;"><span class=""></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right: 0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right: 0.2222em;"></span></span><span class="base"><span class="strut" style="height: 2.2702em; vertical-align: -0.686em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height: 1.5842em;"><span class="" style="top: -2.314em;"><span class="pstrut" style="height: 3em;"></span><span class="mord"><span class="mord">6</span></span></span><span class="" style="top: -3.23em;"><span class="pstrut" style="height: 3em;"></span><span class="frac-line" style="border-bottom-width: 0.04em;"></span></span><span class="" style="top: -3.677em;"><span class="pstrut" style="height: 3em;"></span><span class="mord"><span class="mord">43</span><span class="mord sqrt"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height: 0.9072em;"><span class="svg-align" style="top: -3em;"><span class="pstrut" style="height: 3em;"></span><span class="mord" style="padding-left: 0.833em;"><span class="mord">3</span></span></span><span class="" style="top: -2.8672em;"><span class="pstrut" style="height: 3em;"></span><span class="hide-tail" style="min-width: 0.853em; height: 1.08em;"><svg width="400em" height="1.08em" viewBox="0 0 400000 1080" preserveAspectRatio="xMinYMin slice"><path d="M95,702
+c-2.7,0,-7.17,-2.7,-13.5,-8c-5.8,-5.3,-9.5,-10,-9.5,-14
+c0,-2,0.3,-3.3,1,-4c1.3,-2.7,23.83,-20.7,67.5,-54
+c44.2,-33.3,65.8,-50.3,66.5,-51c1.3,-1.3,3,-2,5,-2c4.7,0,8.7,3.3,12,10
+s173,378,173,378c0.7,0,35.3,-71,104,-213c68.7,-142,137.5,-285,206.5,-429
+c69,-144,104.5,-217.7,106.5,-221
+l0 -0
+c5.3,-9.3,12,-14,20,-14
+H400000v40H845.2724
+s-225.272,467,-225.272,467s-235,486,-235,486c-2.7,4.7,-9,7,-19,7
+c-6,0,-10,-1,-12,-3s-194,-422,-194,-422s-65,47,-65,47z
+M834 80h400000v40h-400000z"></path></svg></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height: 0.1328em;"><span class=""></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height: 0.686em;"><span class=""></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mord mathnormal">i</span><span class="mspace">&nbsp;</span><span class="mord text"><span class="mord">h</span></span></span></span></span></span></div>
+			
+            <p>
+				Пусть настоящее реальное время τ-тау равно 14:20, тогда мы запишем это как четырнадцать целых и двадцать шестидесятых, или сокращённо: 14 ⅓. Это количество часов. Теперь пусть угол отклонения φ-фи ультрафиолетовой стрелки равен 120°, тогда комплексный коэффициент ι-йота по формуле будет равен -½ + √3 пополам мнимых единиц i. Тогда полное комплексное время ξ-кси равно произведению величины τ-тау на величину ι-йота. Итоговый ответ для этого примера: -7/6 реальных часа + (43√3)/6 мнимых часов. Это и есть комплексное время.
+            </p>
+			
+			<div class="formulax"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mtext>Re</mtext><mo stretchy="false">(</mo><mi>ξ</mi><mo stretchy="false">)</mo><mo>=</mo><mi>τ</mi><mo>⋅</mo><mtext>cos&nbsp;</mtext><mi>φ</mi><mspace linebreak="newline"></mspace><mtext>Let&nbsp;&nbsp;</mtext><mi>τ</mi><mo>=</mo><mn>14</mn><mfrac><mn>1</mn><mn>3</mn></mfrac><mtext>&nbsp;h&nbsp;&nbsp;</mtext><mo fence="false" stretchy="true" minsize="1.2em" maxsize="1.2em">(</mo><mtext>or&nbsp;14:20</mtext><mo fence="false" stretchy="true" minsize="1.2em" maxsize="1.2em">)</mo><mspace linebreak="newline"></mspace><mtext>Let&nbsp;&nbsp;</mtext><mi>φ</mi><mo>=</mo><mn>12</mn><msup><mn>0</mn><mo lspace="0em" rspace="0em">∘</mo></msup><mo>⇒</mo><mtext>cos&nbsp;</mtext><mi>φ</mi><mo>=</mo><mo>−</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mo>⇒</mo><mspace linebreak="newline"></mspace><mo>⇒</mo><msub><mi>t</mi><mtext>стрелок</mtext></msub><mo>=</mo><mn>14</mn><mfrac><mn>1</mn><mn>3</mn></mfrac><mo>:</mo><mo stretchy="false">(</mo><mo>−</mo><mn>2</mn><mo stretchy="false">)</mo><mo>=</mo><mo>−</mo><mn>7</mn><mfrac><mn>1</mn><mn>6</mn></mfrac><mtext>&nbsp;h.</mtext><mspace linebreak="newline"></mspace><mo>=</mo><mo stretchy="false">(</mo><mn>24</mn><mtext>&nbsp;h</mtext><mo stretchy="false">)</mo><mo>−</mo><mn>7</mn><mfrac><mn>1</mn><mn>6</mn></mfrac><mtext>&nbsp;h</mtext><mo>=</mo><mn>16</mn><mfrac><mn>5</mn><mn>6</mn></mfrac><mtext>&nbsp;h&nbsp;&nbsp;</mtext><mo fence="false" stretchy="true" minsize="1.2em" maxsize="1.2em">(</mo><mtext>or&nbsp;16:50</mtext><mo fence="false" stretchy="true" minsize="1.2em" maxsize="1.2em">)</mo></mrow><annotation encoding="application/x-tex">\text{Re}(\xi)=\tau\cdot\text{cos}\space\varphi\\\text{Let}\space\ \tau=14\frac{1}{3}\space\text{h}\space\ \big(\text{or 14:20}\big)\\\text{Let}\space\ \varphi=120^{\circ}\Rightarrow \text{cos}\space\varphi = -\frac{1}{2}\Rightarrow\\\Rightarrow t_{стрелок}=14\frac{1}{3}:(-2)=-7\frac{1}{6}\space\text{h.}\\=(24\space\text{h})-7\frac{1}{6}\space\text{h}=16\frac{5}{6}\space\text{h}\space\ \big(\text{or 16:50}\big)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height: 1em; vertical-align: -0.25em;"></span><span class="mord text"><span class="mord">Re</span></span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right: 0.046em;">ξ</span><span class="mclose">)</span><span class="mspace" style="margin-right: 0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right: 0.2778em;"></span></span><span class="base"><span class="strut" style="height: 0.4445em;"></span><span class="mord mathnormal" style="margin-right: 0.1132em;">τ</span><span class="mspace" style="margin-right: 0.2222em;"></span><span class="mbin">⋅</span><span class="mspace" style="margin-right: 0.2222em;"></span></span><span class="base"><span class="strut" style="height: 0.625em; vertical-align: -0.1944em;"></span><span class="mord text"><span class="mord">cos</span></span><span class="mspace">&nbsp;</span><span class="mord mathnormal">φ</span></span><span class="mspace newline"></span><span class="base"><span class="strut" style="height: 0.6833em;"></span><span class="mord text"><span class="mord">Let</span></span><span class="mspace">&nbsp;</span><span class="mspace">&nbsp;</span><span class="mord mathnormal" style="margin-right: 0.1132em;">τ</span><span class="mspace" style="margin-right: 0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right: 0.2778em;"></span></span><span class="base"><span class="strut" style="height: 2.0074em; vertical-align: -0.686em;"></span><span class="mord">14</span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height: 1.3214em;"><span class="" style="top: -2.314em;"><span class="pstrut" style="height: 3em;"></span><span class="mord"><span class="mord">3</span></span></span><span class="" style="top: -3.23em;"><span class="pstrut" style="height: 3em;"></span><span class="frac-line" style="border-bottom-width: 0.04em;"></span></span><span class="" style="top: -3.677em;"><span class="pstrut" style="height: 3em;"></span><span class="mord"><span class="mord">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height: 0.686em;"><span class=""></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace">&nbsp;</span><span class="mord text"><span class="mord">h</span></span><span class="mspace">&nbsp;</span><span class="mspace">&nbsp;</span><span class="mord"><span class="delimsizing size1">(</span></span><span class="mord text"><span class="mord">or&nbsp;14:20</span></span><span class="mord"><span class="delimsizing size1">)</span></span></span><span class="mspace newline"></span><span class="base"><span class="strut" style="height: 0.8778em; vertical-align: -0.1944em;"></span><span class="mord text"><span class="mord">Let</span></span><span class="mspace">&nbsp;</span><span class="mspace">&nbsp;</span><span class="mord mathnormal">φ</span><span class="mspace" style="margin-right: 0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right: 0.2778em;"></span></span><span class="base"><span class="strut" style="height: 0.7241em;"></span><span class="mord">12</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height: 0.7241em;"><span class="" style="top: -3.113em; margin-right: 0.05em;"><span class="pstrut" style="height: 2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">∘</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right: 0.2778em;"></span><span class="mrel">⇒</span><span class="mspace" style="margin-right: 0.2778em;"></span></span><span class="base"><span class="strut" style="height: 0.625em; vertical-align: -0.1944em;"></span><span class="mord text"><span class="mord">cos</span></span><span class="mspace">&nbsp;</span><span class="mord mathnormal">φ</span><span class="mspace" style="margin-right: 0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right: 0.2778em;"></span></span><span class="base"><span class="strut" style="height: 2.0074em; vertical-align: -0.686em;"></span><span class="mord">−</span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height: 1.3214em;"><span class="" style="top: -2.314em;"><span class="pstrut" style="height: 3em;"></span><span class="mord"><span class="mord">2</span></span></span><span class="" style="top: -3.23em;"><span class="pstrut" style="height: 3em;"></span><span class="frac-line" style="border-bottom-width: 0.04em;"></span></span><span class="" style="top: -3.677em;"><span class="pstrut" style="height: 3em;"></span><span class="mord"><span class="mord">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height: 0.686em;"><span class=""></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right: 0.2778em;"></span><span class="mrel">⇒</span></span><span class="mspace newline"></span><span class="base"><span class="strut" style="height: 0.3669em;"></span><span class="mrel">⇒</span><span class="mspace" style="margin-right: 0.2778em;"></span></span><span class="base"><span class="strut" style="height: 0.9012em; vertical-align: -0.2861em;"></span><span class="mord"><span class="mord mathnormal">t</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height: 0.1514em;"><span class="" style="top: -2.55em; margin-left: 0em; margin-right: 0.05em;"><span class="pstrut" style="height: 2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord cyrillic_fallback mtight">стрелок</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height: 0.2861em;"><span class=""></span></span></span></span></span></span><span class="mspace" style="margin-right: 0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right: 0.2778em;"></span></span><span class="base"><span class="strut" style="height: 2.0074em; vertical-align: -0.686em;"></span><span class="mord">14</span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height: 1.3214em;"><span class="" style="top: -2.314em;"><span class="pstrut" style="height: 3em;"></span><span class="mord"><span class="mord">3</span></span></span><span class="" style="top: -3.23em;"><span class="pstrut" style="height: 3em;"></span><span class="frac-line" style="border-bottom-width: 0.04em;"></span></span><span class="" style="top: -3.677em;"><span class="pstrut" style="height: 3em;"></span><span class="mord"><span class="mord">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height: 0.686em;"><span class=""></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right: 0.2778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right: 0.2778em;"></span></span><span class="base"><span class="strut" style="height: 1em; vertical-align: -0.25em;"></span><span class="mopen">(</span><span class="mord">−</span><span class="mord">2</span><span class="mclose">)</span><span class="mspace" style="margin-right: 0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right: 0.2778em;"></span></span><span class="base"><span class="strut" style="height: 2.0074em; vertical-align: -0.686em;"></span><span class="mord">−</span><span class="mord">7</span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height: 1.3214em;"><span class="" style="top: -2.314em;"><span class="pstrut" style="height: 3em;"></span><span class="mord"><span class="mord">6</span></span></span><span class="" style="top: -3.23em;"><span class="pstrut" style="height: 3em;"></span><span class="frac-line" style="border-bottom-width: 0.04em;"></span></span><span class="" style="top: -3.677em;"><span class="pstrut" style="height: 3em;"></span><span class="mord"><span class="mord">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height: 0.686em;"><span class=""></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace">&nbsp;</span><span class="mord text"><span class="mord">h.</span></span></span><span class="mspace newline"></span><span class="base"><span class="strut" style="height: 0.3669em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right: 0.2778em;"></span></span><span class="base"><span class="strut" style="height: 1em; vertical-align: -0.25em;"></span><span class="mopen">(</span><span class="mord">24</span><span class="mspace">&nbsp;</span><span class="mord text"><span class="mord">h</span></span><span class="mclose">)</span><span class="mspace" style="margin-right: 0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right: 0.2222em;"></span></span><span class="base"><span class="strut" style="height: 2.0074em; vertical-align: -0.686em;"></span><span class="mord">7</span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height: 1.3214em;"><span class="" style="top: -2.314em;"><span class="pstrut" style="height: 3em;"></span><span class="mord"><span class="mord">6</span></span></span><span class="" style="top: -3.23em;"><span class="pstrut" style="height: 3em;"></span><span class="frac-line" style="border-bottom-width: 0.04em;"></span></span><span class="" style="top: -3.677em;"><span class="pstrut" style="height: 3em;"></span><span class="mord"><span class="mord">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height: 0.686em;"><span class=""></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace">&nbsp;</span><span class="mord text"><span class="mord">h</span></span><span class="mspace" style="margin-right: 0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right: 0.2778em;"></span></span><span class="base"><span class="strut" style="height: 2.0074em; vertical-align: -0.686em;"></span><span class="mord">16</span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height: 1.3214em;"><span class="" style="top: -2.314em;"><span class="pstrut" style="height: 3em;"></span><span class="mord"><span class="mord">6</span></span></span><span class="" style="top: -3.23em;"><span class="pstrut" style="height: 3em;"></span><span class="frac-line" style="border-bottom-width: 0.04em;"></span></span><span class="" style="top: -3.677em;"><span class="pstrut" style="height: 3em;"></span><span class="mord"><span class="mord">5</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height: 0.686em;"><span class=""></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace">&nbsp;</span><span class="mord text"><span class="mord">h</span></span><span class="mspace">&nbsp;</span><span class="mspace">&nbsp;</span><span class="mord"><span class="delimsizing size1">(</span></span><span class="mord text"><span class="mord">or&nbsp;16:50</span></span><span class="mord"><span class="delimsizing size1">)</span></span></span></span></span></span></div>
+			
+			<p>
+				Пусть настоящее реальное время τ-тау по-прежнему равно 14:20 или 14 целых и ⅓ часа. Тогда, если нам требуется лишь действительное значение комплексного времени, то мы должны умножить τ-тау на косинус φ-фи. Пусть угол φ-фи также равен 120°, его косинус: -½. Тогда получится: -(7 + 1/6) часов. Но ведь стрелки не могут показывать отрицательное время, посему, через аналогию с отрицательными углами получаем, что -(7 часов 10 минут) равно 16 часов 50 минут предыдущих суток (т.к. мы отняли модуль числа от 24 часов). В итоге: полученные 16:50 будут отображаться чёрными стрелками комплексных часов при значении  ультрафиолетовой стрелки «4» (ведь если разделить 360° на 12 часов, то получится по 30° на каждый час, поэтому 4 раза по 30° равно 120°). Теперь «мощность» ультрафиолетовой стрелки очевидна: будь она на нуле (или на 12 часах), то время было бы 14:20; а коль она на четырёх, то время 16:50. И самое главное, что эта разница может варьироваться в зависимости от реального времени и угла φ-фи.
+			</p>
+        </div>
+		
+		</div>
+
+		</div>
+
+			</div>
+
+		</div>
+
+    </div>
+
+</section>
+
+<!-- ИНТЕРАКТИВНАЯ КАРТА -->
+
+<section id="map" class="interactive-map">
+
+    <div class="section-title">
+        <span>04 — ГЕОГРАФИЯ</span>
+        <h2>Карта Омпсиланды</h2>
+        <p>Исследуй сектора мира. Нажми на любой символ, чтобы узнать его тайну.</p>
+    </div>
+
+    <div class="map-frame">
+
+        <img
+            src="Map.png"
+            alt="Карта мира Омпсиланды"
+            class="map-picture"
+        >
+
+        <!-- АКТИВНЫЕ ОБЛАСТИ КАРТЫ -->
+
+<button class="map-hotspot"
+    style="left:26.6%;top:12.7%"
+    onclick="showSector('','Сектор Омега','Зимняя резиденция принцессы Омпсиландской — Сектор Омега является северной границей центрального Омпсиландства. Бескрайний океан лишь на поверхности, а по ту сторону воды находится Озоновый эфир. Сектор Омега является вторым по площади после Сектора Фита, располагающегося на юге. Кристально чистая вода, словно в Байкале — дно видно на глубине 40 метров недалеко от берега. Максимальная глубина океана неизвестна. Лазурная бездна, кажется, уходит в бесконечность. Кто знает, что там на самом деле?.. ','omega.svg')">
+</button>
+
+        <button class="map-hotspot"
+    style="left:15.8%;top:18.9%"
+    onclick="showSector('','Сектор Пи (Вход № 1)','Казалось бы, единственный проход между Точкой Сигма, ведущей на Землю, и остальной Омпсиландой, состоит из трёх входов. Первый — на северо-западе, затерянный в холмах Сектора Лямбда в области крутого обрыва к океану; второй — на северо-востоке, в Секторе Эпсилон, симметрично к первому расположен на побережье океана; ну а третий — на юго-западе, в самом центре Сектора Фита, уникальнейшей оранжереи и самого пёстрого места в Омпсиланде.','pi.svg')">
+</button>
+
+
+        <button class="map-hotspot"
+    style="left:39%;top:18.5%"
+    onclick="showSector('','Сектор Тау','Сектор Тау, мистический телепорт в Сектор Фи, представляет собой цилиндрический тоннель, начинающийся в Секторе Альфа (подводной части океана). Далее он ведёт на юго-запад, сквозь огромную гору, высочайшую вершину Сектора Лямбда из всех существующих, а затем плавно изменяет своё направление с горизонтального на вертикальное, являясь уже лазом — Сектором Фи.','tau.svg')">
+</button>
+
+
+        <button class="map-hotspot"
+    style="left:48.2%;top:18.8%"
+    onclick="showSector('','Сектор Альфа','Озоновый эфир, пожалуй, самое загадочное место в центральном Омпсиландстве. Что же это на самом деле? Вероятно, давным-давно в результате тектонической активности часть воды из Сектора Омега разложилась на водород, далее беспрепятственно улетевший в атмосферу, и кислород, ставший впоследствии озоном, который по грависпатиевым причинам сконцентрировался в тёмно-синий объём, опустился под воду и стал отдельным сектором. С одной стороны, под водой сектора Омега лишь голубая бездна, а с другой — воздушное пространство ультрамаринового цвета, где гравитация противоположна, а поверхность достаточно упруга, чтобы ходить или ездить по ней.','alpha.svg')">
+</button>
+
+
+        <button class="map-hotspot"
+    style="left:61.7%;top:18%"
+    onclick="showSector('','Сектор Ню','Сектор Ню — всего лишь остров, располагающийся в океане в области Сектора Альфа, который находится под ним ниже уровня воды. Никакие другие сверхъестественные события, объекты и артефакты с этим островом не связаны.','nu.svg')">
+</button>
+
+
+<button class="map-hotspot"
+    style="left:80%;top:20.8%"
+    onclick="showSector('','Сектор Каппа','Правительство Омпсиланды не любит, когда вспоминают про заброшенную хижину на стыке Секторов Омега и Эпсилон. Это место раньше было любимой дачей старого короля, отца Мистера Кси и Леди Омеги... Именно здесь проходило их счастливое детство, пока Сектор Кси переживал капитальный ремонт. К счастью, не вспоминая про Сектор Каппа, они не испытывают ностальгию и не скучают по родителям. После воцарения Мистера Кси здесь больше не было ни единой души, кроме Романа Вольфрамова, направлявшегося в центр Омпсиланды.','kappa.svg')">
+</button>
+
+<button class="map-hotspot"
+    style="left:87.5%;top:17.9%"
+    onclick="showSector('','Сектор Пи (Вход №2)','Казалось бы, единственный проход между Точкой Сигма, ведущей на Землю, и остальной Омпсиландой, состоит из трёх входов. Первый — на северо-западе, затерянный в холмах Сектора Лямбда в области крутого обрыва к океану; второй — на северо-востоке, в Секторе Эпсилон, симметрично к первому расположен на побережье океана; ну а третий — на юго-западе, в самом центре Сектора Фита, уникальнейшей оранжереи и самого пёстрого места в Омпсиланде.','pi.svg')">
+</button>
+
+<button class="map-hotspot"
+    style="left:14.9%;top:27.7%"
+    onclick="showSector('','Сектор Лямбда','Сектор Лямбда — горно-холмистая местность между Секторами Омега и Фита. Высоты холмов также различаются, как и формы их: возле Дельты и Фиты холмы невысокие и пологие, а ближе к океану они становятся всё выше и обрывистее! Здесь расположен 1-й вход в Сектор Пи, люк Сектора Фи и устье шахты Омикрон. Неотъемлемую живописность холмам придаёт травяной покров, ну и, конечно же, несравнимая 11-я буква греческого алфавита!','lambda.svg')">
+</button>
+
+<button class="map-hotspot"
+    style="left:23.6%;top:28.8%"
+    onclick="showSector('','Сектор Фи','Сектор Фи — полушахта, люк или лаз... Названий несколько, но суть одинакова: это вертикальная часть тоннеля, идущего из Сектора Альфа. Другая трактовка: тоннель един и не разделён, а Тау и Фи — лишь два его конца (именно таково картографическое обозначение). Скорее всего, древние Архитекторы с помощью этого тоннеля упростили перемещение между Лямбдой и Омегой, так как северные горы наиболее высоки и неприступны.','phi.svg')">
+</button>
+
+<button class="map-hotspot"
+    style="left:25%;top:36%"
+    onclick="showSector('','Сектор Омикрон','Сектор, состоящий из пяти греческих букв: «Сектор Омикрон» — шахта, образованная Архитекторами, так как древние пророчества гласили: «В сем месте сила единится, И Квантию здесь зародиться». В шахте было единственное месторождение 135-го элемента. Само место этих залежей обобщили названием: «Сектор Коппа», в котором ранее добывался квантовый порошок (т.е. Квантий в чистом виде). Но в один момент какой-то неосторожный учёный попытался узнать «возраст» этой горной породы (известно, что в геологии для этого чаще всего используют уран). Однако желаемая для изучения чистая порода располагалась в узкой, но неглубокой трещине, поэтому ему пришлось опустить туда и закрепить масс-спектрометр (прибор для исследования и идентификации вещества, в котором оказались литий-ионные аккумуляторы) с помощью (неодимовой) электромагнитной подвески (магнитной левитации). Но далее произошла совершенно нелепая конфузия — учёный чихнул: подвеска опрокинулась, прибор упал, а аккумулятор повредился. В итоге: литий, неодим и уран вступили в реакцию с квантием, в результате чего стали катионами трёх новых соединений: Цирий (Сампи), Уирий (Дигамма) и Лирий (Лямбда).','OQclw.svg')">
+</button>
+
+<button class="map-hotspot"
+    style="left:17%;top:46.7%"
+    onclick="showSector('','Сектор Фита','Крупнейший по площади биом Омпсиланды — Сектор Тета, однако, так как звук этой греческой буквы находится между «т», «с» и «ф», Леди Омега предложила называть свою летнюю резиденцию новогреческим названием: «Фита», причём это гораздо лучше соответствует его содержанию (ведь слово «фито́» в переводе с греческого означает «растение»): цветущие поля, заливные луга и безграничные пастбища — настоящая оранжерея для редчайших растений. 3-й вход в Сектор Пи делит эти луга на «северные» и «южные».','theta.svg')">
+</button>
+
+<button class="map-hotspot"
+    style="left:51.5%;top:41%"
+    onclick="showSector('','Сектор Кси','Сектор Кси — административный центр Манназ-Омпсиландства (т.е. той ячейки Омпсиландового тессеракта, где Роман Вольфрамов побывал в своём первом четырёхмерном приключении). Его круглая площадь, окружённая белокаменной крепостью, состоит из двух частей: подземного города с солнечными колодцами (т.е. бывшей ремесленнической слободы), где проживали лучшие мастера, добившиеся высочайших успехов в своём рукотворном деле, но не в науке. Поэтому они продолжали творить здесь, на благо Омпсиланды. Вторая часть: королевский дворец, где находится правительство всей центральной ячейки, а также располагается Ксеноинститут (дающий название всему сектору), где учёные исследуют и подробно описывают законы и принципы всей Омпсиланды, или хотя бы данного Омпсиландства.','xi.svg')">
+</button>
+
+<button class="map-hotspot"
+    style="left:73%;top:40%"
+    onclick="showSector('','Сектор Эпсилон','Энергетический сектор разделён от остальной Омпсиланды глубоким ущельем, через которое в былые времена проложили мост, от которого в наши дни не осталось и следа. Имеет сухопутную границу лишь со 2-м входом в Сектор Пи и Сектором Каппа. На севере побережье Сектора Омега, а на востоке располагается Точка Хи — именно туда «подлецы» переместили Хронобулку, которая в скором времени утонула в океане. Сама по себе поверхность Сектора Эпсилон ничем не примечательна, однако в воздухе парят разноцветные энергетические сгустки — достоинство этого сектора: они пульсируют в такт ритмичной музыке, сталкиваются и разделяются, словно пузыри в огромной лава-лампе!','epsilon.svg')">
+</button>
+
+<button class="map-hotspot"
+    style="left:84.8%;top:38.9%"
+    onclick="showSector('','Точка Хи','Точка Хи — бывшее местоположение такого ранее существовавшего объекта: «Хронобулка». Она связывала прошлое с будущим и настоящее с воображаемым — умела записывать и воспроизводить диалоги определённых личностей для дальнейшего подробного изучения их мотивов, настроений и намерений. После использования Романом Вольфрамовым была утоплена им же в лазурной бездне Сектора Омега.','chi.svg')">
+</button>
+
+<button class="map-hotspot"
+    style="left:39.8%;top:51%"
+    onclick="showSector('','Сектор Ипсилон','Он целиком и полностью находится под землёй — на поверхность выступает лишь часть его стеклянного купола, скрывающаяся в лесу. Главный вход туда находится на цокольном этаже Сектора Кси — оттуда можно попасть в развлекательный центр и аквапарк аттракционов. (Мистер Кси ходит туда отдохнуть каждую субботу!) Сектор Ипсилон окружён дренажной системой очистки воды, бо́льший резервуар которой расположен за стеклом аттракциона «небоскрёб» (что Роман Вольфрамов принял за «мегаполис»). Дренажная система ведёт к Сектору Бета, где лишняя вода сливается в болото, а через дерево с гигантским дуплом (в Секторе Дельта рядом с болотом) осуществляется очистка трубопровода. Высокое давление, вызванное нахождением Романа Вольфрамова в этой системе, вытолкнуло его вверх через дождевой водосборник, из-за чего он, пролетев на облаке над Сектором Кси, благополучно приземлился на острове (т.е. в Секторе Ню).','upsilon.svg')">
+</button>
+
+<button class="map-hotspot"
+    style="left:49%;top:50%"
+    onclick="showSector('','Точка Сигма','Это портал на Землю. Сюда ведут три прохода Сектора Пи. Данная точка находится в глубине болота, что обуславливает телепортацию машины Романа Вольфрамова из Сектора Дельта на парковку возле его дома. Это означает, что попасть в портал можно не только через Сектор Пи, но и через Сектор Бета. Точка Сигма является финалом моментального тоннеля (т.е. Момента Ом-(π)-силы — процесса перемещения сознания из земного реального тела в моделируемое Омпсиландское). При раздвоении сознаний в Омпсиланде происходит перемещение в различные ячейки Омпсиландового тессеракта, при том угол Точки Сигма равен 90°, в чём Роман Вольфрамов убедится на личном опыте при путешествии в Омпсиланду спустя два года.','sigma.svg')">
+</button>
+
+<button class="map-hotspot"
+    style="left:55%;top:50%"
+    onclick="showSector('','Сектор Бета','Под крепостной стеной сектора Кси в овраге начинается Сектор Дельта, но, если присмотреться получше, то можно заметить самый маленький автономный сектор Манназ-Омпсиландства — болото, именуемое Сектором Бета. Когда в Секторе Ипсилон множество посетителей, сюда сливается много воды, и Бета становится болотистее. А когда вода чистая, Бета становится умиротворённым пруд-озером, откуда из глубин на поверхность доносятся пульсирующие концентрические окружности — следы от портала Точки Сигма.','beta.svg')">
+</button>
+
+<button class="map-hotspot"
+    style="left:61.6%;top:59.8%"
+    onclick="showSector('Δ','Сектор Дельта','Бывший когда-то в 5 раз больше, лесной биом остался грависпатиевым. Почва не вступила в реакцию с атмосферой, благодаря чему кислотные оксиды образуются гораздо медленнее возможного. И это идёт на пользу. Сектор Дельта пересекается тоннелем Сектора Пи, поэтому иногда проход к Сигме открывается прямо здесь. Причиной обычно является гамма-распад ионно-плазматического ультрануклона, являющегося результатом фотосинтеза грависпатиевых деревьев.','delta.svg')">
+</button>
+
+<button class="map-hotspot"
+    style="left:27.1%;top:72.8%"
+    onclick="showSector('','Сектор Пи (Вход № 3)','Казалось бы, единственный проход между Точкой Сигма, ведущей на Землю, и остальной Омпсиландой, состоит из трёх входов. Первый — на северо-западе, затерянный в холмах Сектора Лямбда в области крутого обрыва к океану; второй — на северо-востоке, в Секторе Эпсилон, симметрично к первому расположен на побережье океана; ну а третий — на юго-западе, в самом центре Сектора Фита, уникальнейшей оранжереи и самого пёстрого места в Омпсиланде.','pi.svg')">
+</button>
+
+<button class="map-hotspot"
+    style="left:66.4%;top:74.4%"
+    onclick="showSector('','Точка Эта','Этой точкой отмечено на карте местоположение усадьбы Леди Омеги в Секторе Фита с её ботаническим садом, главным экспонатом которого является Подсолнечник Водный (лат. Helianthus aquaticus). Квантовое золото, вырабатываемое этим растением, — легендарный Аурий может исцелять любое живое существо, но, к сожалению, только один раз в его жизни.','eta.svg')">
+</button>
+
+    </div>
+
+    <div class="map-hint">
+        <span class="hint-dot"></span>
+        Нажимай на светящиеся области карты для исследования секторов
+    </div>
+
+</section>
+
+<!-- ФИНАЛ -->
+
+<div class="quote">
+
+    <h2>
+        «Украдкой бархатной гонимый<br>
+        Ушёл обменом к темноте,<br>
+	А Омпсиландою манимый<br>
+	Отдал сознанье в годы те...».
+    </h2>
+
+    <p>ALRIGHT, MY OMPSILAND, NOW WE ARE ONE!..</p>
+
+</div>
+
+<footer>
+    <div>© 2026 Ωмѱіланда</div>
+    <div>Научно-фантастический мир Константина Дроздова</div>
+    <a href="#">Подняться наверх ↑</a>
+</footer>
+
+<!-- ВСПЛЫВАЮЩЕЕ ОКНО -->
+
+<div class="modal" id="modal" onclick="closeOutside(event)">
+
+    <div class="modal-content">
+
+        <h2 id="modal-title">Название</h2>
+
+        <p id="modal-text">Описание</p>
+		
+		<div id="crystalBranches"></div>
+
+        <button class="close" onclick="closeModal()">
+            Закрыть
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- ОКНО ИНФОРМАЦИИ О СЕКТОРЕ -->
+
+<div class="sector-modal" id="sectorModal"
+     onclick="closeSectorOutside(event)">
+
+    <div class="sector-window">
+
+        <div class="sector-label">ЭНЦИКЛОПЕДИЯ ОМПСИЛАНДЫ</div>
+
+        <div class="sector-logo" id="sectorLogo">
+    Ω
+</div>
+
+        <h2 id="sectorTitle">Сектор Омега</h2>
+
+        <p id="sectorDescription">
+            Описание сектора.
+        </p>
+
+        <button class="sector-close" onclick="closeSector()">
+            ЗАКРЫТЬ
+        </button>
+
+    </div>
+
+</div>
+
+
+<script>
+
+
+// ОТКРЫТИЕ СЕКТОРА
+
+
+function showSector(logo, title, description, image = null) {
+
+    const logoContainer = document.getElementById("sectorLogo");
+
+    // Очищаем предыдущий логотип
+    logoContainer.replaceChildren();
+
+    if (image) {
+        // Создаём изображение SVG
+        const img = document.createElement("img");
+        img.src = image;
+        img.alt = "Логотип " + title;
+
+        logoContainer.appendChild(img);
+    } else {
+        // Если SVG не указан, используем обычный символ
+        logoContainer.textContent = logo;
+    }
+
+    document.getElementById("sectorTitle").textContent = title;
+
+    document.getElementById("sectorDescription").textContent = description;
+
+    document.getElementById("sectorModal").classList.add("active");
+}
+
+
+// ЗАКРЫТИЕ СЕКТОРА
+
+function closeSector() {
+    document.getElementById("sectorModal").classList.remove("active");
+}
+
+// ЗАКРЫТИЕ ПРИ НАЖАТИИ ВНЕ ОКНА
+
+function closeSectorOutside(event) {
+    if (event.target.id === "sectorModal") {
+        closeSector();
+    }
+}
+
+// ЗАКРЫТИЕ КЛАВИШЕЙ ESC
+
+document.addEventListener("keydown", function(event) {
+    if (event.key === "Escape") {
+        closeSector();
+    }
+});
+
+
+// МОБИЛЬНОЕ МЕНЮ
+
+function toggleMenu() {
+    document.getElementById("navigation").classList.toggle("open");
+}
+
+// ЗАКРЫТИЕ МЕНЮ ПОСЛЕ ПЕРЕХОДА
+
+document.querySelectorAll("nav a").forEach(link => {
+    link.addEventListener("click", () => {
+        document.getElementById("navigation").classList.remove("open");
+    });
+});
+
+// ОТКРЫТИЕ ИНФОРМАЦИИ
+
+function showCrystal(title, text, crystalType = "") {
+
+    document.getElementById("modal-title").textContent = title;
+    document.getElementById("modal-text").textContent = text;
+
+    const branches = document.getElementById("crystalBranches");
+
+    if (crystalType === "quantium") {
+        branches.innerHTML = `
+            <div class="crystal-branches">
+
+                <div class="crystal-branch">
+                    <img src="branch1.png" alt="">
+                    <h3>Ци́рий</h3>
+                    <p>Квантит лития (LiQn) — умеет управлять энергией любых аккумуляторов и содержит невероятные концентраторы, позволяющие беспрепятственно накапливать огромные количества энергии.</p>
+                </div>
+
+                <div class="crystal-branch">
+                    <img src="branch2.png" alt="">
+                    <h3>Уи́рий</h3>
+                    <p>Квантит неодима (NdQn₃) — умеет управлять радиосигналами и электромагнитными взаимодействиями. С его помощью можно обнаруживать неподалёку любую технику и даже излучение.</p>
+                </div>
+
+                <div class="crystal-branch">
+                    <img src="branch3.png" alt="">
+                    <h3>Ли́рий</h3>
+                    <p>Квантит урана (UQn₄) — умеет осуществлять ядерные трансмутации любой сложности и может превращать одни элементы в другие, не создавая ионизирующего излучения в окружающей среде и не облучая превращаемые тела.</p>
+                </div>
+
+            </div>
+        `;
+    } else {
+        branches.innerHTML = "";
+    }
+
+    document.getElementById("modal").classList.add("active");
+}
+
+// ЗАКРЫТИЕ ОКНА
+
+function closeModal() {
+    document.getElementById("modal").classList.remove("active");
+}
+
+function closeOutside(event) {
+    if (event.target.id === "modal") {
+        closeModal();
+    }
+}
+
+// ЗАКРЫТИЕ ПО ESC
+
+document.addEventListener("keydown", function(event) {
+    if (event.key === "Escape") {
+        closeModal();
+    }
+});
+
+/* СВЁРТКА ПАНЕЛИ */
+
+function toggleResearchPanel() {
+    const panel = document.getElementById("researchPanel");
+    const button = panel.querySelector(".research-toggle");
+
+    panel.classList.toggle("collapsed");
+
+    button.textContent =
+        panel.classList.contains("collapsed") ? "+" : "✕";
+}
+
+
+/* ЛОКАЛЬНОЕ ВРЕМЯ */
+
+function updateResearchClock() {
+    const now = new Date();
+
+    document.getElementById("researchClock").textContent =
+        now.toLocaleTimeString("ru-RU");
+}
+
+
+/* РАЗРЕШЕНИЕ ЭКРАНА */
+
+
+
+/* ПРОГРЕСС ИЗУЧЕНИЯ СТРАНИЦЫ */
+
+
+
+/* ОБНОВЛЕНИЕ ДАННЫХ */
+
+updateResearchClock();
+
+setInterval(updateResearchClock, 1000);
+
+
+/* ==============================
+   ПАНЕЛЬ ИССЛЕДОВАТЕЛЯ
+============================== */
+
+// Сворачивание панели
+function toggleResearchPanel() {
+    const panel = document.getElementById("researchPanel");
+    const button = panel.querySelector(".research-toggle");
+
+    panel.classList.toggle("collapsed");
+
+    button.textContent =
+        panel.classList.contains("collapsed") ? "+" : "✕";
+}
+
+if (window.matchMedia("(max-width: 768px)").matches) {
+	toggleResearchPanel()
+}
+
+// Местное время
+function updateResearchClock() {
+    const clock = document.getElementById("researchClock");
+    const date = document.getElementById("researchDate");
+
+    if (!clock || !date) return;
+
+    const now = new Date();
+
+    clock.textContent = now.toLocaleTimeString("ru-RU", {
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit",
+        hour12: false
+    });
+
+    date.textContent = now.toLocaleDateString("ru-RU", {
+        day: "2-digit",
+        month: "long",
+        year: "numeric"
+    });
+}
+
+
+// Координаты наблюдения
+const researchSectors = {
+    "about": {
+        coordinates: "Ω-07 / QN-12",
+        name: "Центральная раздел"
+    },
+    "elements": {
+        coordinates: "TR-03 / QN-48",
+        name: "Элементарный раздел"
+    },
+    "laws": {
+        coordinates: "PH-11 / QN-26",
+        name: "Раздел квантовой физики"
+    },
+    "map": {
+        coordinates: "MP-09 / QN-31",
+        name: "Картографический раздел"
+    }
+};
+
+function updateResearchCoordinates() {
+    const sections = document.querySelectorAll("section[id]");
+    let currentSector = null;
+
+    sections.forEach(section => {
+        const rect = section.getBoundingClientRect();
+
+        if (rect.top <= window.innerHeight * 0.5 &&
+            rect.bottom > window.innerHeight * 0.5) {
+            currentSector = researchSectors[section.id];
+        }
+    });
+
+    if (!currentSector) {
+        currentSector = {
+            coordinates: "Ω-01 / QN-01",
+            name: "Внешняя область"
+        };
+    }
+
+    document.getElementById("researchCoordinates").textContent =
+        currentSector.coordinates;
+
+    document.getElementById("researchSector").textContent =
+        currentSector.name;
+}
+
+
+// Уровень квантовой активности
+let quantumActivity = 68;
+
+function updateQuantumActivity() {
+    quantumActivity += Math.floor(Math.random() * 13) - 6;
+
+    quantumActivity = Math.max(
+        15,
+        Math.min(99, quantumActivity)
+    );
+
+    document.getElementById("researchActivity").textContent =
+        quantumActivity + "%";
+
+    document.getElementById("researchProgress").style.width =
+        quantumActivity + "%";
+
+    let status;
+
+    if (quantumActivity < 35) {
+        status = "НИЗКАЯ";
+    } else if (quantumActivity < 70) {
+        status = "НОРМАЛЬНАЯ";
+    } else if (quantumActivity < 95) {
+        status = "ПОВЫШЕННАЯ";
+    } else {
+        status = "МАКСИМАЛЬНАЯ";
+    }
+
+    document.getElementById("researchActivityStatus").textContent =
+        status;
+}
+
+
+// Аномалия дня
+const researchAnomalies = [
+    {
+        name: "Необычное искривление квантового поля",
+        code: "КЛАСС Ω-03"
+    },
+    {
+        name: "Неидентифицированный кристаллический сигнал",
+        code: "КЛАСС QN-07"
+    },
+    {
+        name: "Колебание пространственных координат",
+        code: "КЛАСС PH-12"
+    },
+    {
+        name: "Нестабильность энергетического потока",
+        code: "КЛАСС TR-04"
+    },
+    {
+        name: "Обнаружен неизвестный источник излучения",
+        code: "КЛАСС Ω-09"
+    },
+    {
+        name: "Локальное нарушение симметрии поля",
+        code: "КЛАСС QN-15"
+    }
+];
+
+function updateResearchAnomaly() {
+    const now = new Date();
+
+    // Один и тот же вариант в течение календарного дня
+    const dayNumber = Math.floor(
+        new Date(now.getFullYear(), now.getMonth(), now.getDate()).getTime()
+        / 86400000
+    );
+
+    const anomaly =
+        researchAnomalies[dayNumber % researchAnomalies.length];
+
+    document.getElementById("researchAnomaly").textContent =
+        anomaly.name;
+
+    document.getElementById("researchAnomalyCode").textContent =
+        anomaly.code;
+}
+
+
+// Квантовый радар
+const radarMessages = [
+    "ОБНАРУЖЕНО 3 СИГНАЛА",
+    "СИГНАЛЫ СТАБИЛЬНЫ",
+    "СКАНИРОВАНИЕ ПРОДОЛЖАЕТСЯ",
+    "КВАНТОВОЕ ПОЛЕ АКТИВНО",
+    "ОБНАРУЖЕН СЛАБЫЙ ОТКЛИК"
+];
+
+let radarMessageIndex = 0;
+
+function updateRadar() {
+    const radarStatus = document.getElementById("radarStatus");
+
+    radarStatus.textContent =
+        radarMessages[radarMessageIndex];
+
+    radarMessageIndex =
+        (radarMessageIndex + 1) % radarMessages.length;
+}
+
+
+// Журнал наблюдений
+function addResearchLog() {
+    const log = document.getElementById("researchLog");
+    const now = new Date();
+
+    const time = now.toLocaleTimeString("ru-RU");
+
+    const coordinates =
+        document.getElementById("researchCoordinates").textContent;
+
+    const activity =
+        document.getElementById("researchActivity").textContent;
+
+    const entry = document.createElement("div");
+    entry.className = "research-log-entry";
+
+    const timeElement = document.createElement("span");
+    timeElement.textContent = time;
+
+    const description = document.createElement("span");
+    description.textContent =
+        "Координаты: " + coordinates +
+        " | Активность: " + activity;
+
+    entry.append(timeElement, description);
+
+    log.prepend(entry);
+
+    // Оставляем последние 5 записей
+    while (log.children.length > 5) {
+        log.removeChild(log.lastElementChild);
+    }
+}
+
+// ==============================
+// ЗАПУСК СИСТЕМЫ
+// ==============================
+
+function startResearchPanel() {
+    updateResearchClock();
+    updateResearchCoordinates();
+    updateQuantumActivity();
+    updateResearchAnomaly();
+    updateRadar();
+
+    // Обновление часов
+    setInterval(updateResearchClock, 1000);
+
+    // Обновление квантовой активности
+    setInterval(updateQuantumActivity, 4000);
+
+    // Обновление радара
+    setInterval(updateRadar, 5000);
+
+    window.addEventListener("scroll", updateResearchCoordinates);
+    window.addEventListener("resize", updateResearchCoordinates);
+}
+
+// Ждём полной загрузки HTML
+if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", startResearchPanel);
+} else {
+    startResearchPanel();
+}
+
+const book = document.querySelector(".book");
+
+const turns = ["turn-1", "turn-2", "turn-3", "turn-4"];
+
+let timers = [];
+
+book.addEventListener("mouseenter", () => {
+    timers.forEach(clearTimeout);
+    timers = [];
+
+    turns.forEach((turn, i) => {
+        const timer = setTimeout(() => {
+            if (book.matches(":hover")) {
+                book.classList.remove(...turns);
+                book.classList.add(turn);
+            }
+        }, i * 500);
+
+        timers.push(timer);
+    });
+});
+
+book.addEventListener("mouseleave", () => {
+    timers.forEach(clearTimeout);
+    book.classList.remove(...turns);
+});
+
+function toggleFAQ(element){
+element.parentElement.classList.toggle("active");
+}
+
+function toggleSpoilers(){
+
+const block=document.getElementById("spoilerSection");
+const button=document.querySelector(".show-spoilers");
+
+if(block.style.display==="block"){
+block.style.display="none";
+button.textContent="Показать формулы";
+}else{
+block.style.display="block";
+button.textContent="Скрыть формулы";
+}
+
+}
+
+</script>
+
+</body>
+</html>

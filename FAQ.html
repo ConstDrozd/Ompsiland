@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Ωмѱіланда — FAQ</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Tinos:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+--bg:#080b18;
+--panel:#11172a;
+--cyan:#65e9ed;
+--purple:#a78bfa;
+--text:#e9efff;
+--muted:#9caac4;
+--yellow:#ffff00;
+--magenta:#ff00ff;
+--triadeblue:#00ffff;
+--green:#00ff00;
+--scarlet:#ff2400;
+--carrot: #f36223;
+}
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body{
+font-family:'Montserrat',sans-serif;
+background:var(--bg);
+color:var(--text);
+overflow-x:hidden;
+}
+
+body::before{
+content:"";
+position:fixed;
+inset:0;
+z-index:-2;
+background:
+radial-gradient(circle at 20% 20%,#17344f 0%,transparent 35%),
+radial-gradient(circle at 80% 70%,#2d1b49 0%,transparent 35%),
+#080b18;
+}
+
+.stars{
+position:fixed;
+inset:0;
+z-index:-1;
+pointer-events:none;
+background-image:
+radial-gradient(1px 1px at 20% 30%,white 99%,transparent),
+radial-gradient(2px 2px at 70% 20%,#65e9ed 99%,transparent),
+radial-gradient(1px 1px at 40% 80%,white 99%,transparent),
+radial-gradient(2px 2px at 90% 70%,#a78bfa 99%,transparent);
+background-size:250px 250px;
+animation:stars 35s linear infinite;
+}
+
+@keyframes stars{
+from{transform:translateY(0);}
+to{transform:translateY(-250px);}
+}
+
+header{
+position:fixed;
+top:0;
+width:100%;
+padding:20px 7%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:rgba(8,11,24,.88);
+backdrop-filter:blur(15px);
+border-bottom:1px solid #ffffff15;
+z-index:100;
+}
+
+header {
+    padding: 14px 5%;
+    gap: 12px;
+}
+
+.link {
+    color: var(--yellow);
+    text-decoration: none;
+    font-size: 15px;
+    letter-spacing: 0px;
+    white-space: nowrap;
+}
+
+.link:hover {
+    color: white;
+}
+
+.logo{
+font-family:"Tinos","Times New Roman",serif;
+font-size:30px;
+color:var(--cyan);
+letter-spacing:3px;
+text-decoration:none;
+}
+
+nav{
+display:flex;
+gap:28px;
+}
+
+nav a{
+text-decoration:none;
+color:var(--muted);
+font-size:11px;
+text-transform:uppercase;
+letter-spacing:1px;
+transition:.3s;
+}
+
+.menu-button{
+display:none;
+background:none;
+border:none;
+color:white;
+font-size:26px;
+cursor:pointer;
+}
+
+.hero{
+padding:150px 8% 70px;
+text-align:center;
+}
+
+.hero small{
+color:var(--cyan);
+letter-spacing:5px;
+}
+
+.hero h1{
+font-family:'Cormorant Garamond',serif;
+font-size:clamp(48px,7vw,78px);
+margin-top:20px;
+background:linear-gradient(120deg,var(--triadeblue),var(--triadeblue),var(--magenta),var(--yellow),var(--yellow));
+-webkit-background-clip:text;
+color:transparent;
+}
+
+.hero p{
+max-width:700px;
+margin:20px auto 0;
+line-height:1.8;
+color:var(--muted);
+font-size:13px;
+}
+
+.search-box{
+max-width:500px;
+margin:45px auto 0;
+}
+
+.search-box input{
+width:100%;
+padding:15px 20px;
+border-radius:50px;
+border:1px solid #65e9ed55;
+background:#11172add;
+color:white;
+font-size:13px;
+outline:none;
+}
+
+.section{
+padding:0 8% 80px;
+}
+
+.section-title{
+text-align:center;
+margin-bottom:35px;
+}
+
+.section-title span{
+color:var(--cyan);
+font-size:10px;
+letter-spacing:4px;
+}
+
+.section-title h2{
+font-family:'Cormorant Garamond',serif;
+font-size:48px;
+margin-top:10px;
+font-weight:400;
+}
+
+.faq-container{
+max-width:900px;
+margin:auto;
+display:flex;
+flex-direction:column;
+gap:16px;
+}
+
+.faq-item{
+background:linear-gradient(145deg,#17213a,#0c1020);
+border:1px solid #ffffff18;
+border-radius:8px;
+overflow:hidden;
+transition:.3s;
+}
+
+.faq-item:hover{
+border-color:#65e9ed66;
+}
+
+.faq-question{
+padding:22px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+cursor:pointer;
+font-weight:500;
+}
+
+.faq-question span:last-child{
+color:var(--cyan);
+font-size:22px;
+transition:.3s;
+}
+
+.faq-answer{
+max-height:0;
+overflow:hidden;
+transition:max-height .35s ease;
+padding:0 22px;
+color:var(--muted);
+line-height:1.8;
+font-size:16px;
+}
+
+.faq-item.active .faq-answer{
+padding:0 22px 22px;
+max-height:10000px;
+}
+
+.faq-item.active .faq-question span:last-child{
+transform:rotate(45deg);
+}
+
+.spoiler-warning{
+max-width:900px;
+margin:0 auto 30px;
+padding:22px;
+border-left:3px solid var(--yellow);
+background:#ffff0010;
+border-radius:6px;
+}
+
+.spoiler-warning h3{
+margin-bottom:10px;
+color:#ffff00;
+}
+
+#spoilerSection{
+display:none;
+}
+
+.show-spoilers{
+margin-top:15px;
+padding:12px 24px;
+background:none;
+border:1px solid var(--yellow);
+color:var(--yellow);
+cursor:pointer;
+border-radius:30px;
+transition:.3s;
+}
+
+.show-spoilers:hover{
+background:#ffff0022;
+}
+
+.future-warning{
+max-width:900px;
+margin:0 auto 30px;
+padding:22px;
+border-left:3px solid var(--scarlet);
+background:#ff240010;
+border-radius:6px;
+}
+
+.future-warning h3{
+margin-bottom:10px;
+color:#ff2400;
+}
+
+#futureSection{
+display:none;
+}
+
+.show-futures{
+margin-top:15px;
+padding:12px 24px;
+background:none;
+border:1px solid var(--scarlet);
+color:var(--scarlet);
+cursor:pointer;
+border-radius:30px;
+transition:.3s;
+}
+
+.show-futures:hover{
+background:#ff240022;
+}
+
+footer{
+padding:35px 8%;
+border-top:1px solid #ffffff18;
+display:flex;
+justify-content:space-between;
+flex-wrap:wrap;
+color:var(--muted);
+font-size:11px;
+}
+
+footer a{
+color:var(--cyan);
+text-decoration:none;
+}
+
+@media(max-width:850px){
+
+nav{
+display:none;
+position:absolute;
+top:60px;
+left:0;
+width:100%;
+background:#0c1122;
+flex-direction:column;
+padding:25px;
+text-align:center;
+}
+
+nav.open{
+display:flex;
+}
+
+.menu-button{
+display:block;
+}
+
+.hero{
+padding:120px 6% 60px;
+}
+
+.section{
+padding:0 6% 60px;
+}
+
+.logo{
+font-size:26px;
+}
+
+}
+
+</style>
+</head>
+<body>
+
+<div class="stars"></div>
+
+<header>
+
+<a href="Ompsiland.html" class="logo">ΩΜΨΙΛΆΝΔΑ</a>
+
+<nav id="navigation">
+<a href="Ompsiland.html">Главная</a>
+<a href="book.html">Книга</a>
+<a href="#spoilers" onclick="toggleSpoilers(), toggleFutures()">Открыть все спойлеры</a>
+</nav>
+
+<button class="menu-button" onclick="toggleMenu()">Ξ</button>
+
+</header>
+
+<section class="hero">
+
+<small>ЭНЦИКЛОПЕДИЯ ОМПСИЛАНДЫ</small>
+
+<h1>Часто задаваемые вопросы</h1>
+
+<p>
+Здесь собраны ответы на самые распространённые вопросы об Омпсиланде.
+Некоторые ответы помогут разобраться в устройстве мира,
+другие разъясняют детали сюжета, поэтому их лучше
+смотреть только после завершения чтения книги.
+</p>
+
+<div class="search-box">
+<input id="searchInput" placeholder="Поиск по вопросам..." oninput="searchFAQ()">
+</div>
+
+</section>
+
+	<section class="section">
+
+		<div class="section-title">
+		<span>БЕЗ СПОЙЛЕРОВ</span>
+		<h2>Для всех читателей</h2>
+		</div>
+
+		<div class="faq-container" id="faqNormal">
+
+			<div class="faq-item">
+
+				<div class="faq-question" onclick="toggleFAQ(this)">
+				<span>Что такое Омпсиланда? В чём её отличие от слова «Омпсиландство»?</span>
+				<span>+</span>
+				</div>
+
+				<div class="faq-answer">
+				Омпсиланда — это: либо комплексное представление об Омпсиландовом Тессеракте (т.е. совокупности 7-ми государств, каждое из которых как раз-таки и является Омпсиландством), либо обобщённое название любого из существующих Омпсиландств. Отдельное государство, располагающееся в соответствующей ячейке Тессеракта, является Омпсиландством.
+				</div>
+
+			</div>
+
+			<div class="faq-item">
+
+				<div class="faq-question" onclick="toggleFAQ(this)">
+				<span>Для какой аудитории это произведение?</span>
+				<span>+</span>
+				</div>
+
+				<div class="faq-answer">
+				Книга «Омпсиланда» содержит в себе отсылки ко многим наукам: к химии, физике, математике, лингвистике, географии, информатике и др. Целевая аудитория — читатели 14-20 лет, интересующиеся различными науками. Если Вы не сильны в физике или химии — не беда! Вы всё равно поймёте сюжет, его основную проблему и происходящие события. Однако, возможно, Вас не заинтересует изучение новых химиеских понятий и физических формул. Автор предупреждает, что в книге содеражится множество терминов, известных молодому поколению, но никаких жаргонизмов или сленгов в книге не содержится.
+				</div>
+
+			</div>
+
+			<div class="faq-item">
+
+				<div class="faq-question" onclick="toggleFAQ(this)">
+				<span>Где же карта?</span>
+				<span>+</span>
+				</div>
+
+				<div class="faq-answer">
+				Чтобы у читателей не возник вопрос об отсутствии карты Омпсиланды, автор поясняет: «Карта расположена на обложке. Секторы Омпсиланды обозначены на ней исключительно греческими буквами. В самом начале книги расположен Греческий алфавит со всеми названиями букв и их внешним видом. Кто всё равно не поймёт: на главной странице сайта внизу есть интерактивная карта — по нажатии на каждый из секторов открывается информационное окно с названием сектора, его логотипом и информацией. С такими подсказками Вы точно не запутаетесь!»
+				</div>
+
+			</div>
+
+		</div>
+
+	</section>
+
+<section class="section">
+
+<div id="spoilers" class="section-title">
+<span>СО СПОЙЛЕРАМИ</span>
+<h2>Для прочитавших книгу</h2>
+</div>
+
+<div class="spoiler-warning">
+
+<h3>⚠ Осторожно!</h3>
+
+<p>
+Следующий раздел содержит ответы, раскрывающие важные сюжетные события.
+Если вы ещё не закончили чтение книги, лучше вернитесь сюда позже.
+</p>
+
+<button class="show-spoilers" onclick="toggleSpoilers()">
+Я прочитал книгу — показать ответы
+</button>
+
+</div>
+
+	<div id="spoilerSection">
+
+		<div class="faq-container">
+
+			<div class="faq-item">
+
+				<div class="faq-question" onclick="toggleFAQ(this)">
+				<span>Были ли изменения в сюжете?</span>
+				<span>+</span>
+				</div>
+
+				<div class="faq-answer">
+				О, да — сюжет был изменён до неузнаваемости! Изначально приквелом Омпсиланды задумывалась поэма-притча 
+				
+					<a class="link" href="tailcoat.html"
+						target="_blank" rel="noopener">
+						«Солнечный Фрак»
+					</a>.
+
+				Предполагалось, что этот фрак будет сшит из Аурия — квантового золота, добываемого из Водного Подсолнечника.
+
+				В первоначальном сюжете главный герой должен был самостоятельно сшить фрак (после событий поэмы) из золотых подсолнечных нитей, поэтому главной «целью» его путешествия была летняя усадьба Леди Омеги.
+
+				А сама Леди Омега была вовсе не доброжелательно к нему настроена, именно поэтому она так эффектно появлялась перед ним (эти сцены всё-таки остались в книге — невероятные перевоплощения принцессы Омпсиландской).
+
+				Главному герою сначала показалось, что она либо ведьма, либо злодейка. А Мистер Кси — наоборот, был гораздо дружелюбнее, чем получился в итоге. Он должен был быть своеобразным «наставником» для главного героя, направляющим в Омпсиланде.
+
+				Леди Омега задумывалась «финальным боссом», как предполагал главный герой, но оказалось совсем иначе.
+
+				На самом деле она ему показалось злой из-за ухудшения климата, что препятствовало нормальной жизни Водного Подсолнечника. А главный герой уже такое себе накрутил — вот ему и чудились все эти преображения Леди Омеги!
+
+				В конце произведения главный герой подружился и с ней, она рассказала ему про свою проблему с Водным Подсолнечником, и он помог ей с этим несчастьем, за что был отблагодарен катушкой золотых подсолнечных нитей. Теперь он сможет сам сшить Золотой Солнечный Фрак.
+
+
+				</div>
+
+			</div>
+			
+			<div class="faq-item">
+
+				<div class="faq-question" onclick="toggleFAQ(this)">
+				<span>Что происходит с главным героем?</span>
+				<span>+</span>
+				</div>
+
+				<div class="faq-answer">
+				Роман Николаевич попал в Омпсиланду вместо своего отца — это было предначертано ему судьбой. Как только сознание человека попадает в Омпсиланду (только для Гостевой Эры — не для Эры Архитекторов!), его тело впадает в анабиоз, при этом действует рифмисторгиевый канал связи с Омпсиландой (на тело не действует окружающая среда, даже если проходит несколько лет — тело не стареет и не погибает во время отсутствия в нём сознания). Когда он вернулся домой (в конце первой части первой книги), он находился в своём теле на Земле. Далее в начале второй части той же книги он заснул (не отправился в Омпсиланду, а именно заснул! — в своём теле) — ему приснилась сказочная страна (вот, что значит — иногда нужно отдыхать от науки!). Затем он проснулся и на ледоколе снова отправился в Омпсиланду (не заснул, а именно «сомпсиландился»!)
+				---далее сюжетная несостыковка (его тело переместилось с ледокола в квартиру)--- 
+				Проснувшись от Омпсиланды, он остался дома и в той истории больше не отправлялся в четвёртое измерение.
+				</div>
+
+			</div>
+
+			<div class="faq-item">
+
+				<div class="faq-question" onclick="toggleFAQ(this)">
+				<span>Планируется ли продолжение истории про Омпсиланду?</span>
+				<span>+</span>
+				</div>
+
+				<div class="faq-answer">
+				Да, и над этим уже идёт работа! Сиквел Омпсиланды будет называться «Октомпсила́нда» (от греч. Οκτωμψιλάνδα — Восьми-Омпсиланда). Нетрудно догадаться, что в следующей книге речь будет идти не об одной, а о восьми Омпсиландах! И как раз там будут подробно объяснены термины «Омпсиландство», «Омпсиландовый Тессеракт» и «ячейка Омпсиланды».
+				</div>
+
+			</div>
+
+		<div class="future-warning">
+
+		<h3>⚠ Внимание!</h3>
+
+		<p>
+		Следующий раздел содержит информацию, связанную с будущей историей про Омпсиланду — 
+		о книге, которая ещё не вышла. Далее следует читать, если Вы целенаправленно желаете
+		заранее узнать подробности устройства всего четвёртого измерения за пределами
+		Омпсиланды из первой книги.
+		</p>
+
+		<button class="show-futures" onclick="toggleFutures()">
+		Я прочитал книгу — показать ответы
+		</button>
+
+		</div>
+
+			<div id="futureSection">
+
+				<div class="faq-container">
+
+					<div class="faq-item">
+
+		<div class="faq-question" onclick="toggleFAQ(this)">
+		<span>Что значит: «Омпсиландство», «Омпсиландовый Тессеракт» и «ячейка Омпсиланды»?</span>
+		<span>+</span>
+		</div>
+
+		<div class="faq-answer">
+		В книге «Октомпсиланда» будет объяснено следующее: на самом деле Омпсиланда — это не просто совокупность секторов, находящихся в четвёртом измерении, а единство семи отдельных независимых государств, в каждом из которых свои: язык, обозначения и политика. Каждое из этих государств называется Омпсиландством. Например, государство Омпсиланды из первой книги называется Греческим Омпсиландством. Но как же выглядит единство этих государств? Оказывается, все семь Омпсиландств составлены в правильный четырёхмерный гиперкуб (он же — Омпсиландовый Тессеракт). Насколько нам известно, тессеракт — восьмиячейник (четырёхмерная фигура, состоящая из восьми кубов), поэтому в каждой его ячейке располагается по одному Омпсиландству. Но здесь возникает небольшое замечание: сознание человека приспособлено для жизни в трёхмерном, а не в четырёхмерном пространстве, поэтому внешний вид Омпсиландового тессеракта выглядит как его трёхмерная проекция. Наиболее удобной математическая система Омпсиланды выбрала компактную симметрическую кубическую проекцию тессеракта, которая потом была названа диаграммой Шлегеля. Несмотря на то, что все кубы в ячейках тессеракта на самом деле равны и одинаковы, в этой проекции восьмая ячейка совпадает с семью остальными, поэтому восьмой Омпсиланды не существует. Такой принцип организации и взаимного расположения Омпсиландств был выбран исключительно ради удобства приспособления человеческих сознаний к пространству Омпсиланды (сознанию кажется трёхмерная проекция тессеракта, хотя на самом деле его моделированное тело находится в четвёртом измерении).
+		</div>
+
+		</div>
+
+		</div>
+
+		</div>
+
+		</div>
+
+	</div>
+
+</section>
+
+<footer>
+    <div>© 2026 Ωмѱіланда</div>
+    <div>Научно-фантастический мир Константина Дроздова</div>
+    <a href="#">Наверх ↑</a>
+</footer>
+
+<script>
+
+function toggleMenu(){
+document.getElementById("navigation").classList.toggle("open");
+}
+
+document.querySelectorAll("nav a").forEach(link => {
+    link.addEventListener("click", () => {
+        document.getElementById("navigation").classList.remove("open");
+    });
+});
+
+function toggleFAQ(element){
+element.parentElement.classList.toggle("active");
+}
+
+function toggleSpoilers(){
+
+const block=document.getElementById("spoilerSection");
+const button=document.querySelector(".show-spoilers");
+
+if(block.style.display==="block"){
+block.style.display="none";
+button.textContent="Я прочитал книгу — показать ответы";
+}else{
+block.style.display="block";
+button.textContent="Скрыть ответы";
+}
+
+}
+
+function toggleFutures(){
+
+const block=document.getElementById("futureSection");
+const button=document.querySelector(".show-futures");
+
+if(block.style.display==="block"){
+block.style.display="none";
+button.textContent="Я хочу узнать спойлеры ко второй книге";
+}else{
+block.style.display="block";
+button.textContent="Скрыть спойлеры";
+}
+
+}
+
+function searchFAQ(){
+
+const query=document.getElementById("searchInput").value.toLowerCase();
+const items=document.querySelectorAll(".faq-item");
+
+items.forEach(item=>{
+
+const text=item.textContent.toLowerCase();
+
+item.style.display=text.includes(query)?"block":"none";
+
+});
+
+}
+
+</script>
+
+</body>
+</html>
